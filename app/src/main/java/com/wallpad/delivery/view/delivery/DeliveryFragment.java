@@ -39,7 +39,7 @@ public class DeliveryFragment extends BaseFragment {
     private final View.OnClickListener mOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            getActivity().finish();
+            System.exit(0);
         }
     };
 
@@ -51,6 +51,7 @@ public class DeliveryFragment extends BaseFragment {
         fragment.setArguments(args);
         return fragment;
     }
+
     @Override
     protected int initLayoutRes() {
         return R.layout.delivery_fragment;

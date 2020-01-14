@@ -1,9 +1,7 @@
 package com.wallpad.basemvvm.view;
 
 import android.annotation.SuppressLint;
-import android.content.res.Configuration;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -11,8 +9,6 @@ import android.view.WindowManager;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-
-import com.wallpad.basemvvm.view.ViewModelActivity;
 
 import org.jetbrains.annotations.Nullable;
 
@@ -28,21 +24,16 @@ public abstract class BaseActivity extends ViewModelActivity {
 
     protected abstract void initData();
 
+    protected abstract void adjustDisplayScale();
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Configuration configuration = getResources().getConfiguration();
-        adjustDisplayScale(configuration);
+        adjustDisplayScale();
         setContentView(initLayoutRes());
         initView();
         initData();
         initAction();
-    }
-
-    public void adjustDisplayScale(Configuration configuration) {
-        configuration.fontScale = Settings.System.getFloat(getApplicationContext().getContentResolver(), Settings.System.FONT_SCALE, 1f);
-        configuration.densityDpi = (int) getResources().getDisplayMetrics().xdpi;
-        getBaseContext().getResources().updateConfiguration(configuration, null);
     }
 
     protected void addFragment(Fragment fragment, int resID) {

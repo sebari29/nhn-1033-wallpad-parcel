@@ -29,7 +29,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:layout_width="280dp"
+                android:layout_width="@dimen/delivery_item_txt_timesend_size"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/notosans_regular"
                 android:gravity="center"
@@ -50,12 +50,11 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:layout_width="278dp"
+                android:layout_width="@dimen/delivery_item_txt_time_receive_size"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/notosans_regular"
                 android:gravity="center"
                 android:singleLine="true"
-
                 android:text="@{item.timeReceive}"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/_22dp"

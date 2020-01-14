@@ -14,26 +14,25 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/background"
-        android:paddingStart="@dimen/_50dp"
-        android:paddingEnd="@dimen/_50dp"
         tools:context=".fragment.NoticesFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_50dp"
             android:layout_marginTop="@dimen/_13dp"
             android:orientation="horizontal"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <com.wallpad.delivery.view.customview.TextViewWithoutPadding
+            <TextView
                 android:id="@+id/tvAMPM"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/notosans_regular"
                 android:text="@{ viewmodel.txtAMorPM }"
                 android:textColor="@color/current_time_color"
-                android:textSize="@dimen/_32dp"
+                android:textSize="@dimen/_32sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/tvCurrentTimeInfo"
                 app:layout_constraintStart_toStartOf="parent"
@@ -46,13 +45,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_5dp"
                 android:fontFamily="@font/notosans_regular"
-                android:format12Hour="hh : mm"
+                android:format12Hour="hh:mm"
                 android:gravity="center"
                 android:includeFontPadding="false"
                 android:padding="0dp"
                 android:text="09:30"
                 android:textColor="@color/current_time_color"
-                android:textSize="@dimen/_32dp"
+                android:textSize="@dimen/_32sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/tvAMPM"
@@ -64,6 +63,7 @@
             android:layout_width="@dimen/_60dp"
             android:layout_height="@dimen/_60dp"
             android:layout_marginTop="@dimen/_13dp"
+            android:layout_marginEnd="@dimen/_32dp"
             android:clickable="true"
             android:src="@drawable/btn_close"
             app:layout_constraintEnd_toEndOf="parent"
@@ -73,6 +73,7 @@
             android:id="@+id/tvNoticeTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_50dp"
             android:layout_marginTop="@dimen/_98dp"
             android:fontFamily="@font/notosans_regular"
             android:text="@string/app_title"
@@ -82,9 +83,11 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="920dp"
+            android:layout_width="@dimen/_924dp"
             android:layout_height="@dimen/_420dp"
+            android:layout_marginStart="@dimen/_50dp"
             android:layout_marginTop="@dimen/_140dp"
+            android:layout_marginEnd="@dimen/_50dp"
             android:background="@drawable/box_line"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -97,10 +100,10 @@
                 android:layout_marginStart="@dimen/_1dp"
                 android:layout_marginTop="@dimen/_1dp"
                 android:layout_marginEnd="@dimen/_1dp"
+                android:background="@drawable/box_line_bg"
                 android:orientation="horizontal"
                 android:paddingStart="@dimen/_30dp"
                 android:paddingEnd="@dimen/_30dp"
-                android:background="@drawable/box_line_bg"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -120,55 +123,55 @@
                     app:layout_constraintVertical_bias="0.0" />
 
                 <ImageView
+                    style="@style/div"
                     android:src="@drawable/image_ss_line"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/average_power_usage_label"
-                    app:layout_constraintTop_toTopOf="parent"
-                    style="@style/div" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/textViewWithoutPadding"
                     android:layout_width="@dimen/delivery_item_txt_time_receive_size"
                     android:layout_height="match_parent"
                     android:fontFamily="@font/notosans_regular"
-                    android:text="@string/delivery_title_receiver"
                     android:gravity="center"
+                    android:text="@string/delivery_title_receiver"
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/_22dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
+                    style="@style/div"
                     android:src="@drawable/image_ss_line"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/average_power_usage_label"
-                    app:layout_constraintTop_toTopOf="parent"
-                    style="@style/div" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:layout_width="@dimen/_168dp"
                     android:layout_height="match_parent"
                     android:fontFamily="@font/notosans_regular"
-                    android:text="@string/delivery_title_name"
                     android:gravity="center"
+                    android:text="@string/delivery_title_name"
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/_22dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
+                    style="@style/div"
                     android:src="@drawable/image_ss_line"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/average_power_usage_label"
-                    app:layout_constraintTop_toTopOf="parent"
-                    style="@style/div" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:layout_width="@dimen/_130dp"
                     android:layout_height="match_parent"
                     android:fontFamily="@font/notosans_regular"
-                    android:text="@string/delivery_title_pay"
                     android:gravity="center"
+                    android:text="@string/delivery_title_pay"
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/_22dp"
                     app:layout_constraintBottom_toBottomOf="parent"

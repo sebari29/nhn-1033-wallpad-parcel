@@ -50,4 +50,9 @@ public class LoginActivity extends BaseActivity {
     protected void initData() {
 
     }
+
+    @Override
+    protected void adjustDisplayScale() {
+        // Do nothing
+    }
 }

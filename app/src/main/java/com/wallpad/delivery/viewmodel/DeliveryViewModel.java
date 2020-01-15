@@ -11,29 +11,44 @@ import com.wallpad.delivery.common.DateTimeUtils;
 import com.wallpad.delivery.data.model.Delivery;
 import com.wallpad.delivery.repository.DeliveryRepository;
 
-
 import java.util.List;
 
+/**
+ * {@link DeliveryViewModel}
+ */
 public class DeliveryViewModel extends BaseAndroidViewModel {
 
     private final DeliveryRepository mRepository;
 
     public final MutableLiveData<String> txtAMorPM = new MutableLiveData<>();
 
+    /**
+     * Constructor
+     *
+     * @param application {@link Application}
+     */
     public DeliveryViewModel(Application application) {
         super(application);
         mRepository = new DeliveryRepository(application);
     }
 
     private LiveData<List<Delivery>> getNotifyDataFromDatabase() {
-        return mRepository.getNotifyData();
+        return mRepository.getDeliveryData();
     }
 
+    /**
+     * Update time info to AM or PM
+     */
     public void changeTxtAMorPM() {
         txtAMorPM.postValue(new DateTimeUtils().getAMorPMTime());
     }
 
-    public MutableLiveData<List<Delivery>> getNotifyData() {
+    /**
+     * Get all delivery info
+     *
+     * @return delivery info list
+     */
+    public MutableLiveData<List<Delivery>> getDeliveryData() {
         LiveData<List<Delivery>> queriedData = getNotifyDataFromDatabase();
         final MutableLiveData<List<Delivery>> returnData = new MutableLiveData<>();
         queriedData.observeForever(new Observer<List<Delivery>>() {

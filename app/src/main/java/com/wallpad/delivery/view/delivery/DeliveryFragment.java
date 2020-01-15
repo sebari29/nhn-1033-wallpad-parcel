@@ -89,7 +89,7 @@ public class DeliveryFragment extends BaseFragment {
     }
 
     private void getAllNotices() {
-        mNoticeViewModel.getNotifyData().observe(this, notices -> mNoticesAdapter.setNoticeList(notices));
+        mNoticeViewModel.getDeliveryData().observe(this, notices -> mNoticesAdapter.setNoticeList(notices));
     }
 
     @Override

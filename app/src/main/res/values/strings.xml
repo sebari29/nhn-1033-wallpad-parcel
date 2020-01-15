@@ -3,9 +3,9 @@
     <string name="action_settings">Settings</string>
     <string name="action_hide">Hide</string>
     <string name="action_show">Show</string>
-    <string name="app_title">택배 조회</string>
-    <string name="title_delivery_send">도착 시간</string>
-    <string name="delivery_title_receiver">수령 시간</string>
+    <string name="app_title">택배조회</string>
+    <string name="title_delivery_send">도착시간</string>
+    <string name="delivery_title_receiver">수령시간</string>
     <string name="delivery_title_name">택배함</string>
     <string name="delivery_title_pay">상태</string>
 </resources>

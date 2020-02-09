@@ -21,7 +21,7 @@ public class XMLUtils<T> {
         return byteArrayOutputStream.toString();
     }
 
-    public T convertXMLToObject(String string, Class<T> clazz) {
+    public T convertXMLToObject(String string, Class<T> clazz) throws IOException {
         final JacksonXmlModule module = new JacksonXmlModule();
         module.setDefaultUseWrapper(false);
         ObjectMapper objectMapper = new XmlMapper(module);
@@ -54,7 +54,7 @@ public class XMLUtils<T> {
 //            }
 
         } catch (IOException e) {
-            e.printStackTrace();
+           throw e;
         }
         return object;
     }

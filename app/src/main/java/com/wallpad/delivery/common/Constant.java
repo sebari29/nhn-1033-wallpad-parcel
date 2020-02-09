@@ -24,7 +24,7 @@ public class Constant {
     public static final String MSG = "msg_data_page";
     public static final String ELECTRICITY = "electricity";
 
-    public static final String STRING_EMPTY = " ";
+    public static final String STRING_EMPTY = "";
     public static final String INTENT_ACTION_DISABLE = "disable_app";
     public static final String MSG_IN_BUNDLE = "msg";
     public static final String BUNDLE = "bundle";

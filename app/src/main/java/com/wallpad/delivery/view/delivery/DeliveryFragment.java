@@ -163,7 +163,7 @@ public class DeliveryFragment extends BaseFragment {
     private final View.OnClickListener mOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            System.exit(0);
+            getActivity().finish();
         }
     };
 
@@ -228,6 +228,7 @@ public class DeliveryFragment extends BaseFragment {
         mWorkerThread.sendMessage(message);
 
     }
+
     @Override
     public void onResume() {
         super.onResume();
@@ -264,6 +265,7 @@ public class DeliveryFragment extends BaseFragment {
         getContext().unbindService(mServiceConnection);
         mIGSmartData = null;
     }
+
     @Override
     public void onStop() {
         super.onStop();
@@ -273,12 +275,12 @@ public class DeliveryFragment extends BaseFragment {
 
     @Override
     public void onDestroy() {
-        mApiContentProviderHelper.unregisterContentObserver(mContentObserver);;
+        mApiContentProviderHelper.unregisterContentObserver(mContentObserver);
+        ;
         mWorkerThread.quit();
         super.onDestroy();
 
     }
-
 
 
     @Override

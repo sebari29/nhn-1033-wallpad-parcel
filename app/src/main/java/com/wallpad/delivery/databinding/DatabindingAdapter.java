@@ -4,10 +4,13 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
 import androidx.databinding.BindingAdapter;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.wallpad.delivery.R;
 
 public class DatabindingAdapter {
 
@@ -67,5 +70,10 @@ public class DatabindingAdapter {
     @BindingAdapter("android:adapter")
     public static void setAdapter(RecyclerView recyclerView, RecyclerView.Adapter<?> adapter) {
         recyclerView.setAdapter(adapter);
+    }
+
+    @BindingAdapter("android:setEventType")
+    public static void setEventType(TextView tv, String eventString) {
+        tv.setText(eventString.equals("0") ? R.string.delivery_event_sent : R.string.delivery_event_received);
     }
 }

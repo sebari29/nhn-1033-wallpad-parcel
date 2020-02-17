@@ -63,10 +63,11 @@ class ParcelInquiryOperation {
                         } else if (data.getName().equals("EventType")) {
                             delivery.setPayment(data.getValue());
                         } else if (data.getName().equals("Name")) {
-                            delivery.setName(data.getValue());
+//                            delivery.setName(data.getValue());
                         } else if (data.getName().equals("id")) {
                             delivery.setId(data.getValue());
                         } else if (data.getName().equals("BoxNo")) {
+                            delivery.setName(data.getValue());
                         } else if (data.getName().equals("totalcount")) {
                         }
                     }

@@ -24,7 +24,7 @@ public class Constant {
     public static final String MSG = "msg_data_page";
     public static final String ELECTRICITY = "electricity";
 
-    public static final String STRING_EMPTY = " ";
+    public static final String STRING_EMPTY = "";
     public static final String INTENT_ACTION_DISABLE = "disable_app";
     public static final String MSG_IN_BUNDLE = "msg";
     public static final String BUNDLE = "bundle";
@@ -32,4 +32,12 @@ public class Constant {
     public static final String KEY_IS_SHOW_APP = "isShow";
     public static final String KEY_LIST_APP_SELECTED = "list_app_selected";
     public static final int SIZE_ITEM_IN_LIST = 5;
+
+    public static final String GSMART_PACKAGE_NAME = "com.gsmart";
+
+    public static final int INVALID_NUMBER = -1;
+
+    public static final int DATABASE_STATE_EXIST = 0;
+
+    public static final int DATABASE_STATE_NOT_EXIST = 1;;
 }

@@ -105,6 +105,7 @@ public class DeliveryFragment extends BaseFragment {
                 LogUtils.e(TAG, "#onServiceConnected " + e.getMessage());
             }
             try {
+                LogUtils.d("call requsest to gsmart service refresh data  now");
                 mIGSmartData.refreshDeliveryInfo();
             } catch (RemoteException e) {
                 e.printStackTrace();
@@ -257,13 +258,16 @@ public class DeliveryFragment extends BaseFragment {
     }
 
     private void unbindGSmartService() {
-        try {
-            mIGSmartData.removeClientListener(mIGSmartDataCallback);
-        } catch (RemoteException e) {
-            e.printStackTrace();
+        if (mIGSmartData != null) {
+            try {
+                mIGSmartData.removeClientListener(mIGSmartDataCallback);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
         }
         getContext().unbindService(mServiceConnection);
         mIGSmartData = null;
+
     }
 
     @Override

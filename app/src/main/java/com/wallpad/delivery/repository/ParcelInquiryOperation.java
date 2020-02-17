@@ -50,15 +50,15 @@ class ParcelInquiryOperation {
                 for (Output output : hnmlParcelInfoInquiry.getControlResponse().getOutputList().Output) {
                     Delivery delivery = new Delivery();
                     for (Data data : output.getData()) {
-                        if (data.getName().equals("ArriveTime")) {
+                        if (data.getName().equals("ArriveTime")&& data.getValue() != null) {
                             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
-                             Date date =    sdf.parse(data.getValue());
-                            String dateStr  =  new SimpleDateFormat("yyyy.MM.dd a hh:mm",Locale.getDefault()).format(date);
+                            Date date = sdf.parse(data.getValue());
+                            String dateStr = new SimpleDateFormat("yyyy.MM.dd a hh:mm", Locale.getDefault()).format(date);
                             delivery.setTimeSend(dateStr);
-                        } else if (data.getName().equals("ReceiveTime")) {
+                        } else if (data.getName().equals("ReceiveTime") && data.getValue() != null) {
                             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
-                            Date date =    sdf.parse(data.getValue());
-                            String dateStr  =  new SimpleDateFormat("yyyy.MM.dd a hh:mm",Locale.getDefault()).format(date);
+                            Date date = sdf.parse(data.getValue());
+                            String dateStr = new SimpleDateFormat("yyyy.MM.dd a hh:mm", Locale.getDefault()).format(date);
                             delivery.setTimeReceive(dateStr);
                         } else if (data.getName().equals("EventType")) {
                             delivery.setPayment(data.getValue());

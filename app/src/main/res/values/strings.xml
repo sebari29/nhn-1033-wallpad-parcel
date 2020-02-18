@@ -8,4 +8,6 @@
     <string name="delivery_title_receiver">수령시간</string>
     <string name="delivery_title_name">택배함</string>
     <string name="delivery_title_pay">상태</string>
+    <string name="delivery_event_received">수령</string>
+    <string name="delivery_event_sent">미수령</string>
 </resources>

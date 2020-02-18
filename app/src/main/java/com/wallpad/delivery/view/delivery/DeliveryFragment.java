@@ -1,6 +1,7 @@
 package com.wallpad.delivery.view.delivery;
 
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -9,29 +10,39 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.recyclerview.widget.LinearLayoutManager;
-
-import com.blankj.utilcode.util.LogUtils;
 import com.wallpad.basemvvm.view.BaseFragment;
-import com.wallpad.delivery.MainActivity;
 import com.wallpad.delivery.R;
+import com.wallpad.delivery.common.Constant;
+import com.wallpad.delivery.data.model.Delivery;
 import com.wallpad.delivery.databinding.DeliveryFragmentBinding;
+import com.wallpad.delivery.view.customview.loadmore.WrapContentLinearLayoutManager;
 import com.wallpad.delivery.viewmodel.DeliveryViewModel;
+
+import java.util.List;
+
+import static com.wallpad.delivery.common.Constant.INTENT_ACTION_LOADMORE_PARCEL;
+import static com.wallpad.delivery.common.Constant.INTENT_ACTION_NOTICE;
 
 public class DeliveryFragment extends BaseFragment {
 
-    private final static String TAG = MainActivity.class.getSimpleName();
 
     private DeliveryFragmentBinding binding;
 
     private DeliveryViewModel mNoticeViewModel;
 
-    private DeliveryAdapter mNoticesAdapter;
+    private final static String TAG = DeliveryFragment.class.getSimpleName();
+
+    public interface OnDataChangedListener {
+        void onNotificationChanged(List<Delivery> notifications);
+    }
+
+    private final static String GSMART_SERVICE_CLASS_NAME = Constant.GSMART_PACKAGE_NAME + ".GSmartService";
+
 
     private BroadcastReceiver mUpdateTimeReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            LogUtils.d(TAG, "onReceive() - ");
+//            LogUtils.d(TAG, "onReceive() - ");
             mNoticeViewModel.changeTxtAMorPM();
         }
     };
@@ -39,14 +50,12 @@ public class DeliveryFragment extends BaseFragment {
     private final View.OnClickListener mOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            System.exit(0);
+            getActivity().finish();
         }
     };
 
     public static DeliveryFragment newInstance() {
-
         Bundle args = new Bundle();
-
         DeliveryFragment fragment = new DeliveryFragment();
         fragment.setArguments(args);
         return fragment;
@@ -75,34 +84,66 @@ public class DeliveryFragment extends BaseFragment {
         binding.setViewmodel(mNoticeViewModel);
         binding.setLifecycleOwner(this);
         binding.noticeList.setHasFixedSize(true);
-        binding.noticeList.setLayoutManager(new LinearLayoutManager(getContext()));
-        mNoticesAdapter = new DeliveryAdapter(getContext());
-        binding.noticeList.setAdapter(mNoticesAdapter);
+        binding.noticeList.setLayoutManager(new WrapContentLinearLayoutManager(getContext()));
         binding.btnClose.setOnClickListener(mOnClickListener);
-        getAllNotices();
         mNoticeViewModel.changeTxtAMorPM();
     }
 
     @Override
     protected void initData() {
-
+        mNoticeViewModel.registerObserverDBChange();
+        getAllNotices();
+//        getAllMockNotices();
+//        initScrollListener();
     }
 
     private void getAllNotices() {
-        mNoticeViewModel.getDeliveryData().observe(this, notices -> mNoticesAdapter.setNoticeList(notices));
+        mNoticeViewModel.refreshData();
+//        Message message = new Message();
+//        message.obj = new ParcelEvent(mOnDataChangedListener);
+//        mWorkerThread.sendMessage(message);
     }
 
     @Override
     public void onResume() {
         super.onResume();
         getContext().registerReceiver(mUpdateTimeReceiver, new IntentFilter(Intent.ACTION_TIME_TICK));
-
+        getContext().registerReceiver(mNoticeViewModel.getBroadcastParcelNotify(), new IntentFilter(INTENT_ACTION_NOTICE));
+        getContext().registerReceiver(mNoticeViewModel.getReceiverLoadmore(), new IntentFilter(INTENT_ACTION_LOADMORE_PARCEL));
     }
 
     @Override
     public void onPause() {
         super.onPause();
         getContext().unregisterReceiver(mUpdateTimeReceiver);
+        getContext().unregisterReceiver(mNoticeViewModel.getBroadcastParcelNotify());
+        getContext().unregisterReceiver(mNoticeViewModel.getReceiverLoadmore());
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        bindGSmartService();
+
+    }
+
+    private void bindGSmartService() {
+        Intent intent = new Intent();
+        intent.setComponent(new ComponentName(Constant.GSMART_PACKAGE_NAME, GSMART_SERVICE_CLASS_NAME));
+        getContext().bindService(intent, mNoticeViewModel.getmServiceConnection(), Context.BIND_AUTO_CREATE);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        mNoticeViewModel.unbindGSmartService();
+        getContext().unbindService(mNoticeViewModel.getmServiceConnection());
+    }
+
+    @Override
+    public void onDestroy() {
+        mNoticeViewModel.unregsiterObserverDBChange();
+        super.onDestroy();
 
     }
 
@@ -116,4 +157,6 @@ public class DeliveryFragment extends BaseFragment {
     public void hideLoading() {
 
     }
+
+
 }

@@ -46,4 +46,10 @@ dependencies {
     implementation 'com.blankj:utilcode:1.5.1'
     implementation 'androidx.room:room-runtime:2.2.3'
     annotationProcessor 'androidx.room:room-compiler:2.2.3'
+
+    //parse XML
+    implementation "jakarta.xml.bind:jakarta.xml.bind-api:2.3.2"
+    implementation "org.glassfish.jaxb:jaxb-runtime:2.3.2"
+    implementation 'com.github.yeshodhan:android-jaxb:v1.0.1'
+    implementation "com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.9.0"
 }

@@ -125,6 +125,26 @@
     <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.9.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.fasterxml.woodstox:woodstox-core:5.0.3@jar" level="project" />
     <orderEntry type="library" name="Gradle: org.codehaus.woodstox:stax2-api:3.1.4@jar" level="project" />
+    <orderEntry type="library" name="Gradle: org.glassfish.jaxb:jaxb-runtime:2.3.2@jar" level="project" />
+    <orderEntry type="library" name="Gradle: org.jvnet.staxex:stax-ex:1.8.1@jar" level="project" />
+    <orderEntry type="library" name="Gradle: jakarta.xml.bind:jakarta.xml.bind-api:2.3.2@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.sun.istack:istack-commons-runtime:3.0.8@jar" level="project" />
+    <orderEntry type="library" name="Gradle: jakarta.activation:jakarta.activation-api:1.2.1@jar" level="project" />
+    <orderEntry type="library" name="Gradle: org.glassfish.jaxb:txw2:2.3.2@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.sun.xml.fastinfoset:FastInfoset:1.2.16@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.yeshodhan:android-jaxb:v1.0.1@jar" level="project" />
+    <orderEntry type="library" name="Gradle: org.simpleframework:simple-xml:2.7.1@jar" level="project" />
+    <orderEntry type="library" name="Gradle: stax:stax:1.2.0@jar" level="project" />
+    <orderEntry type="library" name="Gradle: stax:stax-api:1.0.1@jar" level="project" />
+    <orderEntry type="library" name="Gradle: xpp3:xpp3:1.1.3.3@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.sun.codemodel:codemodel:2.6@jar" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.commons:commons-lang3:3.4@jar" level="project" />
+    <orderEntry type="library" name="Gradle: log4j:log4j:1.2.17@jar" level="project" />
+    <orderEntry type="library" name="Gradle: org.json:json:20150729@jar" level="project" />
+    <orderEntry type="library" name="Gradle: commons-io:commons-io:2.4@jar" level="project" />
+    <orderEntry type="library" name="Gradle: commons-cli:commons-cli:1.3@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.sun.xsom:xsom:20140925@jar" level="project" />
+    <orderEntry type="library" name="Gradle: relaxngDatatype:relaxngDatatype:20020414@jar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.appcompat:appcompat:1.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.fragment:fragment:1.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.appcompat:appcompat-resources:1.1.0@aar" level="project" />

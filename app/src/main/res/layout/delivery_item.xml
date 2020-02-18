@@ -97,7 +97,7 @@
                 android:fontFamily="@font/notosans_regular"
                 android:gravity="center"
                 android:singleLine="true"
-                android:text="@{item.payment}"
+                android:setEventType="@{item.status}"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/_22dp"
                 app:layout_constraintBottom_toBottomOf="parent"

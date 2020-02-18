@@ -1,6 +1,5 @@
 package com.wallpad.net.sample.parcelnotification.request;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
@@ -16,14 +15,46 @@ public class ControlRequest {
     @JacksonXmlProperty(localName = "InputList")
     private InputList listInput;
 
-    @JsonCreator
-    public ControlRequest(@JacksonXmlProperty(isAttribute = true, localName = "TransID") String transID,
-                          @JacksonXmlProperty(localName = "FunctionID") String functionID,
-                          @JacksonXmlProperty(localName = "FunctionCategory") String functionCategory,
-                          @JacksonXmlProperty(localName = "InputList") InputList list) {
+//    @JsonCreator
+//    public ControlRequest(@JacksonXmlProperty(isAttribute = true, localName = "TransID") String transID,
+//                          @JacksonXmlProperty(localName = "FunctionID") String functionID,
+//                          @JacksonXmlProperty(localName = "FunctionCategory") String functionCategory,
+//                          @JacksonXmlProperty(localName = "InputList") InputList list) {
+//        this.functionID = functionID;
+//        this.functionCategory = functionCategory;
+//        this.transID = transID;
+//        this.listInput = list;
+//    }
+
+    public String getFunctionID() {
+        return functionID;
+    }
+
+    public void setFunctionID(String functionID) {
         this.functionID = functionID;
+    }
+
+    public String getFunctionCategory() {
+        return functionCategory;
+    }
+
+    public void setFunctionCategory(String functionCategory) {
         this.functionCategory = functionCategory;
+    }
+
+    public String getTransID() {
+        return transID;
+    }
+
+    public void setTransID(String transID) {
         this.transID = transID;
-        this.listInput = list;
+    }
+
+    public InputList getListInput() {
+        return listInput;
+    }
+
+    public void setListInput(InputList listInput) {
+        this.listInput = listInput;
     }
 }

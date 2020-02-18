@@ -1,18 +1,6 @@
 package com.wallpad.delivery;
 
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.content.ServiceConnection;
 import android.content.res.Configuration;
-import android.database.ContentObserver;
-import android.net.Uri;
-import android.os.AsyncTask;
-import android.os.Handler;
-import android.os.IBinder;
-import android.os.Looper;
-import android.os.Message;
-import android.os.RemoteException;
 import android.provider.Settings;
 import android.util.DisplayMetrics;
 import android.view.Display;
@@ -21,21 +9,12 @@ import android.view.WindowManager;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.blankj.utilcode.util.LogUtils;
-import com.gsmart.IGSmartData;
-import com.gsmart.IGSmartDataCallback;
-import com.wallpad.delivery.common.APIContentProviderHelper;
-import com.wallpad.delivery.common.Constant;
 import com.wallpad.delivery.data.model.Delivery;
-import com.wallpad.delivery.event.ParcelEvent;
-import com.wallpad.delivery.repository.GSmartWorkerThread;
-import com.wallpad.delivery.view.delivery.DeliveryAdapter;
 import com.wallpad.net.socket.SocketClient;
 import com.wallpad.net.socket.TcpClient;
 import com.wallpad.basemvvm.view.BaseActivity;
 import com.wallpad.delivery.view.delivery.DeliveryFragment;
 
-import java.lang.ref.WeakReference;
 import java.util.List;
 
 public class MainActivity extends BaseActivity {
@@ -46,98 +25,20 @@ public class MainActivity extends BaseActivity {
 
     public interface OnDataChangedListener {
         void onNotificationChanged(List<Delivery> notifications);
+        void onNoItem();
     }
 
-    private final static String GSMART_SERVICE_CLASS_NAME = Constant.GSMART_PACKAGE_NAME + ".GSmartService";
 
-    private boolean mGSmartServiceBound;
 
-    private IGSmartData mIGSmartData;
 
-    private RefreshHandler mRefreshHandler;
 
-    private final Handler mMainHandler = new Handler();
 
-    private APIContentProviderHelper mApiContentProviderHelper;
 
-    private GSmartWorkerThread mWorkerThread;
 
-    private final OnDataChangedListener mOnDataChangedListener = new OnDataChangedListener() {
-        @Override
-        public void onNotificationChanged(List<Delivery> notifications) {
-            LogUtils.d(TAG, "onNotificationChanged() - ");
-//            mNoticesAdapter.setNoticeList(notifications);
-        }
-    };
-
-    private final IGSmartDataCallback.Stub mIGSmartDataCallback = new IGSmartDataCallback.Stub() {
-        @Override
-        public void onNotificationLoadCompleted(String notifications) throws RemoteException {
-            LogUtils.d(TAG, "onNotificationLoadCompleted() - " + notifications);
-            LogUtils.d(TAG, "onNotificationLoadCompleted() - " + Looper.getMainLooper().equals(Looper.myLooper()));
-            Message message = new Message();
-            message.obj = notifications;
-            mRefreshHandler.sendMessage(message);
-        }
-    };
 
     /**
      * call back client connection
      */
-    private final ServiceConnection mServiceConnection = new ServiceConnection() {
-
-        @Override
-        public void onServiceConnected(ComponentName className, IBinder service) {
-            LogUtils.d(TAG, "onServiceConnected method is called");
-            mGSmartServiceBound = true;
-            mIGSmartData = IGSmartData.Stub.asInterface(service);
-            try {
-                mIGSmartData.addClientListener(mIGSmartDataCallback);
-            } catch (RemoteException e) {
-                LogUtils.e(TAG, "#onServiceConnected " + e.getMessage());
-            }
-        }
-
-        @Override
-        public void onServiceDisconnected(ComponentName className) {
-            LogUtils.d(TAG, "onServiceDisconnected method is called");
-            try {
-                mIGSmartData.removeClientListener(mIGSmartDataCallback);
-            } catch (RemoteException e) {
-                LogUtils.e(TAG, "#onServiceConnected " + e.getMessage());
-            }
-            mGSmartServiceBound = false;
-        }
-    };
-    private final ContentObserver mContentObserver = new ContentObserver(mMainHandler) {
-        @Override
-        public boolean deliverSelfNotifications() {
-            return super.deliverSelfNotifications();
-        }
-
-        @Override
-        public void onChange(boolean selfChange) {
-            LogUtils.d(TAG, "mContentObserver - onChange - selfChange = " + selfChange);
-            super.onChange(selfChange);
-        }
-
-        @Override
-        public void onChange(boolean selfChange, Uri uri) {
-            LogUtils.d(TAG, "mContentObserver - onChange - selfChange = " + selfChange + ", uri = " + uri.toString());
-            if (mApiContentProviderHelper.validateDemoModeSonySettingUri(uri)) {
-                getAllNotices();
-            }
-            super.onChange(selfChange, uri);
-        }
-    };
-
-    private final GSmartWorkerThread.WorkerThreadListener mWorkerThreadListener = new GSmartWorkerThread.WorkerThreadListener() {
-        @Override
-        public void onTimeout() {
-            mWorkerThread.quit();
-            LogUtils.d(TAG, "onTimeout - ");
-        }
-    };
 
 
     @Override
@@ -325,11 +226,7 @@ public class MainActivity extends BaseActivity {
     private void start() {
 
     }
-    private void getAllNotices() {
-        Message message = new Message();
-        message.obj = new ParcelEvent(mOnDataChangedListener);
-        mWorkerThread.sendMessage(message);
-    }
+
 
     @Override
     protected void onStart() {
@@ -339,21 +236,7 @@ public class MainActivity extends BaseActivity {
 
     }
 
-    private void bindGSmartService() {
-        Intent intent = new Intent();
-        intent.setComponent(new ComponentName(Constant.GSMART_PACKAGE_NAME, GSMART_SERVICE_CLASS_NAME));
-        bindService(intent, mServiceConnection, Context.BIND_AUTO_CREATE);
-    }
 
-    private void unbindGSmartService() {
-        try {
-            mIGSmartData.removeClientListener(mIGSmartDataCallback);
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
-        unbindService(mServiceConnection);
-        mIGSmartData = null;
-    }
     @Override
     protected void onStop() {
         super.onStop();
@@ -369,34 +252,5 @@ public class MainActivity extends BaseActivity {
 
     }
 
-
-
-
-    private static class RefreshHandler extends Handler {
-
-        private final WeakReference<DeliveryAdapter> mWeakHandler;
-
-        /**
-         * Constructor
-         */
-        private RefreshHandler(Looper looper, DeliveryAdapter mediaHandler) {
-            super(looper);
-            mWeakHandler = new WeakReference<>(mediaHandler);
-        }
-
-        @Override
-        public void handleMessage(Message msg) {
-//            switch (msg.what) {
-//                case MSG_REQ_REFRESH_UI:
-            DeliveryAdapter noticesAdapter = mWeakHandler.get();
-            if (noticesAdapter != null) {
-                noticesAdapter.setNoticeList((List<Delivery>) msg.obj);
-            }
-//                    break;
-//                default:
-//                    break;
-//        }
-        }
-    }
 
 }

@@ -11,6 +11,8 @@ import androidx.databinding.BindingAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.wallpad.delivery.R;
+import com.wallpad.delivery.view.customview.loadmore.GsmartRecyclerview;
+import com.wallpad.delivery.view.customview.loadmore.ILoadmore;
 
 public class DatabindingAdapter {
 
@@ -70,6 +72,21 @@ public class DatabindingAdapter {
     @BindingAdapter("android:adapter")
     public static void setAdapter(RecyclerView recyclerView, RecyclerView.Adapter<?> adapter) {
         recyclerView.setAdapter(adapter);
+    }
+
+    @BindingAdapter("android:isLoad")
+    public static void isLoad(GsmartRecyclerview recyclerView, Boolean isLoad) {
+        recyclerView.setLoading(isLoad);
+    }
+
+    @BindingAdapter("android:hasNoMore")
+    public static void hasNoMore(GsmartRecyclerview recyclerView, Boolean hasNoMore) {
+        recyclerView.setNoMore(hasNoMore);
+    }
+
+    @BindingAdapter("android:setLoadmoreListener")
+    public static void setLoadmoreListener(GsmartRecyclerview recyclerView, ILoadmore loadmore) {
+        recyclerView.setLoadMore(loadmore);
     }
 
     @BindingAdapter("android:setEventType")

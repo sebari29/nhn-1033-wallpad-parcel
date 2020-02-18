@@ -1,6 +1,5 @@
 package com.wallpad.net.sample.parcelnotification.request;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
@@ -15,10 +14,10 @@ public class Data {
     @JacksonXmlText
     public String valueData;
 
-    @JsonCreator
-    public Data(@JacksonXmlProperty(isAttribute = true, localName = "name") String name,
-                @JacksonXmlProperty(localName = "Data") String valueData) {
-        this.name = name;
-        this.valueData = valueData;
-    }
+//    @JsonCreator
+//    public Data(@JacksonXmlProperty(isAttribute = true, localName = "name") String name,
+//                @JacksonXmlProperty(localName = "Data") String valueData) {
+//        this.name = name;
+//        this.valueData = valueData;
+//    }
 }

@@ -13,7 +13,7 @@ interface IGSmartData {
 
     oneway void refreshEnergyInfo();
 
-    oneway void refreshDeliveryInfo();
+    oneway void refreshDeliveryInfo(int indexPage);
 
     oneway void refreshVisitorInfo();
 

@@ -178,7 +178,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
             </LinearLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
+            <com.wallpad.delivery.view.customview.loadmore.GsmartRecyclerview
                 android:id="@+id/noticeList"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -187,6 +187,10 @@
                 android:layout_marginBottom="@dimen/_1dp"
                 android:clipToPadding="false"
                 android:overScrollMode="never"
+                android:isLoad="@{viewmodel.isLoadingmore}"
+                android:setLoadmoreListener="@{viewmodel.iLoadmore}"
+                android:hasNoMore="@{viewmodel.hasNoMoreItem}"
+                android:adapter="@{viewmodel.adapter}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

@@ -24,6 +24,14 @@
             android:windowSoftInputMode="adjustPan">
 
         </activity>
+
+        <receiver android:name=".broadcast.ReceiveParcelNotify"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="notice_arrived" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

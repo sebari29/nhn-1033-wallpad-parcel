@@ -16,8 +16,8 @@ public class Constant {
     public static final String TAG_UPDATE_AIR_MONITOR = "broadCastUpdateAirMonitor";
     public static final String ACTION_LOAD_AIR_VALUE = "broadCastLoadAirValue";
 
-    public static final String TAG_UPDATE_WEATHER=  "broadCastUpdateWeather";
-    public static final String ACTION_LOAD_WEATHER =  "broadCastLoadWeatherValue";
+    public static final String TAG_UPDATE_WEATHER = "broadCastUpdateWeather";
+    public static final String ACTION_LOAD_WEATHER = "broadCastLoadWeatherValue";
     public static final String SYSTEM_DIALOG_REASON_KEY = "reason";
     public static final String SYSTEM_DIALOG_REASON_HOME_KEY = "homekey";
 
@@ -39,5 +39,12 @@ public class Constant {
 
     public static final int DATABASE_STATE_EXIST = 0;
 
-    public static final int DATABASE_STATE_NOT_EXIST = 1;;
+    public static final int DATABASE_STATE_NOT_EXIST = 1;
+    ;
+    public static final String INTENT_ACTION_NOTICE = "notice_arrived";
+    public static final String INTENT_ACTION_LOADMORE_PARCEL = "loadmore_parcel_inquiry";
+
+    public static int MAX_SIZE_LIST = 128;
+    public static final String DATETIME_YYYYMMDDTHHMMSS="yyyy-MM-dd'T'HH:mm:ss";
+    public static final String DATETIME_YYYYMMDDAHHMM="yyyy.MM.dd a hh:mm";
 }

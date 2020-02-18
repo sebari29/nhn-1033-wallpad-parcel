@@ -13,24 +13,17 @@ import androidx.room.PrimaryKey;
 
 import java.util.Objects;
 
-@Entity(tableName = "t_delivery")
 public class Delivery extends BaseObservable implements Parcelable {
 
-    @PrimaryKey
-    @ColumnInfo(name = "id")
     @NonNull
     private String id;
 
-    @ColumnInfo(name = "time_send")
     private String timeSend;
 
-    @ColumnInfo(name = "time_receive")
     private String timeReceive;
 
-    @ColumnInfo(name = "name")
     private String name;
-    @ColumnInfo(name = "payment")
-    private String payment;
+    private String status;
 
     @NonNull
     public String getId() {
@@ -65,12 +58,15 @@ public class Delivery extends BaseObservable implements Parcelable {
         this.name = name;
     }
 
-    public String getPayment() {
-        return payment;
+    public String getStatus() {
+        return status;
     }
 
-    public void setPayment(String payment) {
-        this.payment = payment;
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Delivery() {
     }
 
     @Override
@@ -84,10 +80,7 @@ public class Delivery extends BaseObservable implements Parcelable {
         dest.writeString(this.timeSend);
         dest.writeString(this.timeReceive);
         dest.writeString(this.name);
-        dest.writeString(this.payment);
-    }
-
-    public Delivery() {
+        dest.writeString(this.status);
     }
 
     protected Delivery(Parcel in) {
@@ -95,7 +88,7 @@ public class Delivery extends BaseObservable implements Parcelable {
         this.timeSend = in.readString();
         this.timeReceive = in.readString();
         this.name = in.readString();
-        this.payment = in.readString();
+        this.status = in.readString();
     }
 
     public static final Creator<Delivery> CREATOR = new Creator<Delivery>() {

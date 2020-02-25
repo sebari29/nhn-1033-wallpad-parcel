@@ -19,6 +19,25 @@ interface IGSmartData {
 
     oneway void refreshSettingsInfo();
 
+    oneway void refeshWeatherInfo();
+
+    oneway void refreshSubmenuEnergyElectricityInfo();
+
+    oneway void refreshSubmenuEnergyGasInfo();
+
+    oneway void refreshSubmenuEnergyWaterInfo();
+
+    oneway void refreshSubmenuEnergyHotWaterInfo();
+
+    oneway void refreshSubmenuEnergyHeatingInfo();
+
+    oneway void refreshSubmenuEnergyCoolingInfo();
+
+
+    oneway void refreshParkingParkingInquiry();
+
+    oneway void refreshParkingLot(int indexPage);
+
     oneway void sendEnrollmentParking(String newParkingInfo);
 
     void addClientListener(IGSmartDataCallback callback);

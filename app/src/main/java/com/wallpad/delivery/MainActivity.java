@@ -10,16 +10,12 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.wallpad.delivery.data.model.Delivery;
-import com.wallpad.net.socket.SocketClient;
-import com.wallpad.net.socket.TcpClient;
 import com.wallpad.basemvvm.view.BaseActivity;
 import com.wallpad.delivery.view.delivery.DeliveryFragment;
 
 import java.util.List;
 
 public class MainActivity extends BaseActivity {
-    private TcpClient mTcpClient;
-    protected SocketClient mSocket;
     private boolean mBounded;
     private final static String TAG = MainActivity.class.getSimpleName();
 

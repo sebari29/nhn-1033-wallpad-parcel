@@ -81,7 +81,7 @@ public class DeliveryViewModel extends BaseAndroidViewModel {
                 if (mIGSmartData != null) {
                     indexPage++;
                     mIGSmartData.refreshDeliveryInfo(indexPage);
-                    LogUtils.d("loadmore now ...");
+                    LogUtils.d("-------------------> loadmore now ..." + indexPage);
                 }
             } catch (Exception e) {
                 e.printStackTrace();

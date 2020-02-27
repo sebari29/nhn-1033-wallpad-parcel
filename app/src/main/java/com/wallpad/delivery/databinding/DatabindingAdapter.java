@@ -73,7 +73,10 @@ public class DatabindingAdapter {
     public static void setAdapter(RecyclerView recyclerView, RecyclerView.Adapter<?> adapter) {
         recyclerView.setAdapter(adapter);
     }
-
+    @BindingAdapter({"bind:scrollTo"})
+    public static void scrollTo(RecyclerView recyclerView, int position) {
+        recyclerView.scrollToPosition(position);
+    }
     @BindingAdapter("android:isLoad")
     public static void isLoad(GsmartRecyclerview recyclerView, Boolean isLoad) {
         recyclerView.setLoading(isLoad);

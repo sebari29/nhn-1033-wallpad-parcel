@@ -42,6 +42,7 @@ public class Constant {
     public static final int DATABASE_STATE_NOT_EXIST = 1;
     ;
     public static final String INTENT_ACTION_NOTICE = "notice_arrived";
+    public static final String INTENT_ACTION_PARCEL_INQUIRY_NOTICE = "parcel_inquiry_arrived";
     public static final String INTENT_ACTION_LOADMORE_PARCEL = "loadmore_parcel_inquiry";
     public static final String INTENT_ACTION_SHOW_LOADING = "showLoading";
 

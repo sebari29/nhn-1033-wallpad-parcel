@@ -26,6 +26,7 @@ import java.util.List;
 
 import static com.wallpad.delivery.common.Constant.INTENT_ACTION_LOADMORE_PARCEL;
 import static com.wallpad.delivery.common.Constant.INTENT_ACTION_NOTICE;
+import static com.wallpad.delivery.common.Constant.INTENT_ACTION_PARCEL_INQUIRY_NOTICE;
 
 public class DeliveryFragment extends BaseFragment {
 
@@ -127,7 +128,7 @@ public class DeliveryFragment extends BaseFragment {
     public void onResume() {
         super.onResume();
         getContext().registerReceiver(mUpdateTimeReceiver, new IntentFilter(Intent.ACTION_TIME_TICK));
-        getContext().registerReceiver(mDeliveryViewModel.getBroadcastParcelNotify(), new IntentFilter(INTENT_ACTION_NOTICE));
+        getContext().registerReceiver(mDeliveryViewModel.getBroadcastParcelNotify(), new IntentFilter(INTENT_ACTION_PARCEL_INQUIRY_NOTICE));
         getContext().registerReceiver(mDeliveryViewModel.getReceiverLoadmore(), new IntentFilter(INTENT_ACTION_LOADMORE_PARCEL));
         IntentFilter intentFilterLoading = new IntentFilter(Constant.INTENT_ACTION_SHOW_LOADING);
         getContext().registerReceiver(mDeliveryViewModel.getReceiverLoading(), intentFilterLoading);

@@ -29,7 +29,7 @@
             android:enabled="true"
             android:exported="true">
             <intent-filter>
-                <action android:name="notice_arrived" />
+                <action android:name="parcel_inquiry_arrived" />
             </intent-filter>
         </receiver>
     </application>

@@ -21,22 +21,45 @@ interface IGSmartData {
 
     oneway void refeshWeatherInfo();
 
-    oneway void refreshSubmenuEnergyElectricityInfo();
-
-    oneway void refreshSubmenuEnergyGasInfo();
-
-    oneway void refreshSubmenuEnergyWaterInfo();
-
-    oneway void refreshSubmenuEnergyHotWaterInfo();
-
-    oneway void refreshSubmenuEnergyHeatingInfo();
-
-    oneway void refreshSubmenuEnergyCoolingInfo();
-
-
     oneway void refreshParkingParkingInquiry();
 
     oneway void refreshParkingLot(int indexPage);
+
+    oneway void refreshSubmenuEnergyElectricityInfo(boolean isRemoteApp);
+
+    oneway void refreshSubmenuEnergyGasInfo(boolean isRemoteApp);
+
+    oneway void refreshSubmenuEnergyWaterInfo(boolean isRemoteApp);
+
+    oneway void refreshSubmenuEnergyHotWaterInfo(boolean isRemoteApp);
+
+    oneway void refreshSubmenuEnergyHeatingInfo(boolean isRemoteApp);
+
+    oneway void refreshSubmenuEnergyCoolingInfo(boolean isRemoteApp);
+
+
+
+    oneway void refreshSubmenuEnergyElectricityInfoLastMonth(boolean isRemoteApp);
+
+    oneway void refreshSubmenuEnergyGasInfoLastMonth(boolean isRemoteApp);
+
+    oneway void refreshSubmenuEnergyWaterInfoLastMonth(boolean isRemoteApp);
+
+    oneway void refreshSubmenuEnergyHotWaterInfoLastMonth(boolean isRemoteApp);
+
+    oneway void refreshSubmenuEnergyHeatingInfoLastMonth(boolean isRemoteApp);
+
+    oneway void refreshSubmenuEnergyCoolingInfoLastMonth(boolean isRemoteApp);
+
+
+
+    oneway void refreshEnergyElectricityAmount(int amount);
+    oneway void refreshEnergyGasAmount(int amount);
+    oneway void refreshEnergyWaterAmount(int amount);
+    oneway void refreshEnergyHotWaterAmount(int amount);
+    oneway void refreshEnergyHeatingAmount(int amount);
+    oneway void refreshEnergyCoolingAmount(int amount);
+
 
     oneway void sendEnrollmentParking(String newParkingInfo);
 

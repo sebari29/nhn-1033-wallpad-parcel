@@ -71,4 +71,5 @@ dependencies {
 
     implementation project(path: ':basemvvm')
     implementation project(path: ':net')
+    compile project(path: ':dialog')
 }

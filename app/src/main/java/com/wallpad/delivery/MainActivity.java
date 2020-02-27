@@ -12,25 +12,19 @@ import androidx.fragment.app.FragmentTransaction;
 import com.wallpad.delivery.data.model.Delivery;
 import com.wallpad.basemvvm.view.BaseActivity;
 import com.wallpad.delivery.view.delivery.DeliveryFragment;
+import com.wallpad.dialog.ProgressDialogCustom;
 
 import java.util.List;
 
 public class MainActivity extends BaseActivity {
     private boolean mBounded;
     private final static String TAG = MainActivity.class.getSimpleName();
+    private ProgressDialogCustom dialogLoading;
 
     public interface OnDataChangedListener {
         void onNotificationChanged(List<Delivery> notifications);
         void onNoItem();
     }
-
-
-
-
-
-
-
-
 
     /**
      * call back client connection
@@ -198,6 +192,8 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+        dialogLoading = new ProgressDialogCustom(this);
+        showLoading();
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.setCustomAnimations(
@@ -207,6 +203,14 @@ public class MainActivity extends BaseActivity {
         fragmentTransaction.replace(R.id.main_frame_root, DeliveryFragment.newInstance());
         fragmentTransaction.disallowAddToBackStack();
         fragmentTransaction.commitAllowingStateLoss();
+    }
+
+    public void hideLoading() {
+        dialogLoading.hideDialog();
+    }
+
+    public void showLoading() {
+        dialogLoading.showDialog();
     }
 
     @Override

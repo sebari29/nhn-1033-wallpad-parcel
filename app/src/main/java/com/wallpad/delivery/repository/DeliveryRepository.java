@@ -5,6 +5,7 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 
 import com.blankj.utilcode.util.LogUtils;
+import com.wallpad.delivery.asynctask.AsynctaskLoadData;
 import com.wallpad.delivery.common.APIContentProviderHelper;
 import com.wallpad.delivery.data.model.Delivery;
 import com.wallpad.net.XMLUtils;
@@ -29,7 +30,15 @@ import static com.wallpad.delivery.common.Constant.DATETIME_YYYYMMDDTHHMMSS;
  * {@link DeliveryRepository}
  */
 public class DeliveryRepository {
-    String currentData = "";
+    private String currentData = "";
+    private Application mApplication;
+    public interface ICallBack {
+        void showLoading();
+
+        void hideLoading();
+
+        void onCallBack(List<Delivery> list);
+    }
 
     /**
      * Constructor
@@ -37,6 +46,7 @@ public class DeliveryRepository {
      * @param application
      */
     public DeliveryRepository(Application application) {
+        mApplication = application;
     }
 
     /**
@@ -44,7 +54,10 @@ public class DeliveryRepository {
      *
      * @return delivery info list
      */
-    public List<Delivery> getDeliveryData(APIContentProviderHelper apiContentProviderHelper) {
+    public List<Delivery> getDeliveryData(APIContentProviderHelper apiContentProviderHelper,
+                                            ICallBack iCallBack) {
+        new AsynctaskLoadData(iCallBack, currentData, mApplication).execute(apiContentProviderHelper);
+
         String response = apiContentProviderHelper.getNotificationResponse();
         if (response.equals(currentData)) {
             return null;

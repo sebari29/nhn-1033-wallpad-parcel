@@ -43,8 +43,11 @@ public class Constant {
     ;
     public static final String INTENT_ACTION_NOTICE = "notice_arrived";
     public static final String INTENT_ACTION_LOADMORE_PARCEL = "loadmore_parcel_inquiry";
+    public static final String INTENT_ACTION_SHOW_LOADING = "showLoading";
 
     public static int MAX_SIZE_LIST = 128;
     public static final String DATETIME_YYYYMMDDTHHMMSS="yyyy-MM-dd'T'HH:mm:ss";
     public static final String DATETIME_YYYYMMDDAHHMM="yyyy.MM.dd a hh:mm";
+    public static final String TAG ="gsmart-delivery";
+    public static int TIME_DELAY_LOADING = 3000;
 }

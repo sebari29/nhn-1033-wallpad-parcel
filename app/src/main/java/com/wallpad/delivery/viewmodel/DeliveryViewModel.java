@@ -61,6 +61,30 @@ public class DeliveryViewModel extends BaseAndroidViewModel {
     private boolean mGSmartServiceBound;
     private IGSmartData mIGSmartData;
     private int indexPage = 0;
+    private MutableLiveData<Boolean> isLoading = new MutableLiveData<>();
+
+    //implement loading progress bar
+    @Override
+    public MutableLiveData<Boolean> getIsLoading() {
+        return isLoading;
+    }
+
+    @Override
+    public void setIsLoading(MutableLiveData<Boolean> isLoading) {
+        this.isLoading = isLoading;
+    }
+
+    private BroadcastReceiver receiverLoading = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            LogUtils.d("BroadcastReceiver Loading ");
+            if (intent.getBundleExtra(Constant.BUNDLE) != null) {
+                if (intent.getBundleExtra(Constant.BUNDLE).getBoolean(Constant.MSG))
+                    isLoading.postValue(intent.getBundleExtra(Constant.BUNDLE).getBoolean(Constant.MSG));
+            }
+        }
+    };
+
     /**
      * Callback loadmore.
      * add loadmoreview to adapter
@@ -221,7 +245,22 @@ public class DeliveryViewModel extends BaseAndroidViewModel {
      * Reload all list data
      */
     public void refreshData() {
-        List<Delivery> list = mRepository.getDeliveryData(mApiContentProviderHelper);
+        List<Delivery> list = mRepository.getDeliveryData(mApiContentProviderHelper, new DeliveryRepository.ICallBack() {
+            @Override
+            public void showLoading() {
+
+            }
+
+            @Override
+            public void hideLoading() {
+
+            }
+
+            @Override
+            public void onCallBack(List<Delivery> list) {
+
+            }
+        });
         adapter.setNoticeList(list);
         isLoadingmore.postValue(false);
         hasNoMoreItem.postValue(false);
@@ -239,6 +278,7 @@ public class DeliveryViewModel extends BaseAndroidViewModel {
         adapter = new DeliveryAdapter();
         isLoadingmore.setValue(true);
         hasNoMoreItem.setValue(false);
+        isLoading.setValue(false);
     }
 
     public void setLoaded() {
@@ -332,5 +372,8 @@ public class DeliveryViewModel extends BaseAndroidViewModel {
 
     public void setReceiverLoadmore(BroadcastReceiver receiverLoadmore) {
         this.receiverLoadmore = receiverLoadmore;
+    }
+    public BroadcastReceiver getReceiverLoading() {
+        return receiverLoading;
     }
 }

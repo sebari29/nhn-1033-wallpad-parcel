@@ -51,6 +51,4 @@ public class Constant {
     public static final String DATETIME_YYYYMMDDAHHMM="yyyy.MM.dd a hh:mm";
     public static final String TAG ="gsmart-delivery";
     public static int TIME_DELAY_LOADING = 3000;
-    public static final String KEY_PACKAGE_NAME = "source_application_packageName";
-    public static final String PACKAGE_APP = "com.wallpad.delivery";
 }

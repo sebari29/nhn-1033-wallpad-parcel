@@ -94,9 +94,9 @@ public class APIContentProviderHelper {
 
     void updateReadNotice() {
         ContentValues values = new ContentValues();
-        values.put(Constant.KEY_PACKAGE_NAME, "com.wallpad.delivery");
-        int result = mContentResolver.update(API_NOTIFICATION_CONTENT_URI, values, Constant.KEY_PACKAGE_NAME + "=?", new String[]{"com.wallpad.delivery"});
-        LogUtils.d(TAG, "#updateVisibleGoneApplication() - result= " + result);
+        values.put(Constant.KEY_PACKAGE_NAME, Constant.PACKAGE_APP);
+        int result = mContentResolver.update(API_NOTIFICATION_CONTENT_URI, values, Constant.KEY_PACKAGE_NAME + "=?", new String[]{Constant.PACKAGE_APP});
+        LogUtils.d(TAG, "#updateNotice() - result= " + result);
     }
 
     private int checkAPICacheState() {

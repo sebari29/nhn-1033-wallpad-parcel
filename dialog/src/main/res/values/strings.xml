@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">dialog</string>
-    <string name="txt_title_dialog_confirm">전체 사제</string>
-    <string name="txt_title_alert_dialog">택배알림</string>
-    <string name="txt_content_dialog_confirm">전세사제를 진행하시겠습니다?</string>
-    <string name="txt_content_alert_dialog">택배가 도착했습니다.</string>
-    <string name="txt_cancel_dialog_confirm">취소</string>
-    <string name="txt_ok_dialog_confirm">확인</string>
-</resources>

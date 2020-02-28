@@ -199,6 +199,7 @@ public class DeliveryViewModel extends BaseAndroidViewModel {
             Delivery delivery = mRepository.getDeliveryFrom(data);
             if (delivery != null) {
                 adapter.getmNotifyList().add(0, delivery);
+                mApiContentProviderHelper.updateVisibleGone();
                 adapter.notifyItemInserted(0);
                 scrollToTop.postValue(0);
                 if (adapter.getItemCount() == Constant.MAX_SIZE_LIST) {

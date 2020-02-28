@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="view"
+            type="com.wallpad.dialog.ConfirmDialog" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="@dimen/_420dp"
+        android:layout_height="@dimen/_400dp"
+        android:background="@drawable/bg_popup_05"
+        android:minWidth="@dimen/_420dp"
+        android:minHeight="@dimen/_400dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="@dimen/_80dp"
+            android:layout_height="@dimen/_80dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_64dp"
+            android:src="@{view.drawableDialog}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/tv_title_dialog_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_170dp"
+            android:text="@{view.txtTileDialog}"
+            android:layout_marginEnd="@dimen/_50dp"
+            android:layout_marginStart="@dimen/_50dp"
+            android:textColor="@color/color_title_confirm_dialog"
+            android:textSize="@dimen/_28sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_50dp"
+            android:layout_marginStart="@dimen/_50dp"
+            android:layout_marginTop="@dimen/_22dp"
+            android:text="@{view.txtContentDialog}"
+            android:textColor="@color/color_title_confirm_dialog"
+            android:textSize="@dimen/_24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title_dialog_confirm" />
+
+        <ImageView
+            android:layout_width="@dimen/_420dp"
+            android:layout_height="@dimen/_1dp"
+            android:src="@drawable/line_popup00"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/constraint_button" />
+
+        <LinearLayout
+            android:id="@+id/constraint_button"
+            android:layout_width="@dimen/_420dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/btn_cancel"
+                android:layout_width="@dimen/_195dp"
+                android:layout_height="@dimen/_70dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="@{()->view.onClickCancel()}"
+                android:text="@{view.txtButtonCancelDialog}"
+                android:textAllCaps="false"
+                android:textColor="@color/btn_cancel_dialog_confirm"
+                android:textSize="@dimen/_26sp" />
+
+            <ImageView
+                android:layout_width="@dimen/_1dp"
+                android:layout_height="@dimen/_70dp"
+                android:src="@drawable/line_popup01"
+                app:layout_constraintTop_toTopOf="@+id/constraint_button"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/btn_apply"
+                android:layout_width="@dimen/_195dp"
+                android:layout_height="@dimen/_70dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="@{()->view.onClickApply()}"
+                android:text="@{view.txtButtonOkDialog}"
+                android:textAllCaps="false"
+                android:textColor="@color/btn_ok_dialog_confirm"
+                android:textSize="@dimen/_26sp" />
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

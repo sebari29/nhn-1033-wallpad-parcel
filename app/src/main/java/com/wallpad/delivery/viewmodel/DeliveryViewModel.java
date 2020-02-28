@@ -57,10 +57,35 @@ public class DeliveryViewModel extends BaseAndroidViewModel {
     public final MutableLiveData<String> txtAMorPM = new MutableLiveData<>();
     private APIContentProviderHelper mApiContentProviderHelper;
     private MutableLiveData<Boolean> isLoadingmore = new MutableLiveData<>();
+    private MutableLiveData<Integer> scrollToTop = new MutableLiveData<>();
     private MutableLiveData<Boolean> hasNoMoreItem = new MutableLiveData<>();
     private boolean mGSmartServiceBound;
     private IGSmartData mIGSmartData;
     private int indexPage = 0;
+    private MutableLiveData<Boolean> isLoading = new MutableLiveData<>();
+
+    //implement loading progress bar
+    @Override
+    public MutableLiveData<Boolean> getIsLoading() {
+        return isLoading;
+    }
+
+    @Override
+    public void setIsLoading(MutableLiveData<Boolean> isLoading) {
+        this.isLoading = isLoading;
+    }
+
+    private BroadcastReceiver receiverLoading = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            LogUtils.d("BroadcastReceiver Loading ");
+            if (intent.getBundleExtra(Constant.BUNDLE) != null) {
+                if (intent.getBundleExtra(Constant.BUNDLE).getBoolean(Constant.MSG))
+                    isLoading.postValue(intent.getBundleExtra(Constant.BUNDLE).getBoolean(Constant.MSG));
+            }
+        }
+    };
+
     /**
      * Callback loadmore.
      * add loadmoreview to adapter
@@ -81,7 +106,7 @@ public class DeliveryViewModel extends BaseAndroidViewModel {
                 if (mIGSmartData != null) {
                     indexPage++;
                     mIGSmartData.refreshDeliveryInfo(indexPage);
-                    LogUtils.d("loadmore now ...");
+                    LogUtils.d("-------------------> loadmore now ..." + indexPage);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -175,6 +200,7 @@ public class DeliveryViewModel extends BaseAndroidViewModel {
             if (delivery != null) {
                 adapter.getmNotifyList().add(0, delivery);
                 adapter.notifyItemInserted(0);
+                scrollToTop.postValue(0);
                 if (adapter.getItemCount() == Constant.MAX_SIZE_LIST) {
                     adapter.notifyItemChanged(Constant.MAX_SIZE_LIST - 1);
                     noMoreItem();
@@ -202,6 +228,9 @@ public class DeliveryViewModel extends BaseAndroidViewModel {
                         noMoreItem(); // list max is 128 item. no show more
                 } else {
                     noMoreItem();
+                    adapter.removeLoadmore();
+                    isLoadingmore.postValue(false);
+
                 }
             } else {
                 noMoreItem();
@@ -221,7 +250,22 @@ public class DeliveryViewModel extends BaseAndroidViewModel {
      * Reload all list data
      */
     public void refreshData() {
-        List<Delivery> list = mRepository.getDeliveryData(mApiContentProviderHelper);
+        List<Delivery> list = mRepository.getDeliveryData(mApiContentProviderHelper, new DeliveryRepository.ICallBack() {
+            @Override
+            public void showLoading() {
+
+            }
+
+            @Override
+            public void hideLoading() {
+
+            }
+
+            @Override
+            public void onCallBack(List<Delivery> list) {
+
+            }
+        });
         adapter.setNoticeList(list);
         isLoadingmore.postValue(false);
         hasNoMoreItem.postValue(false);
@@ -239,6 +283,8 @@ public class DeliveryViewModel extends BaseAndroidViewModel {
         adapter = new DeliveryAdapter();
         isLoadingmore.setValue(true);
         hasNoMoreItem.setValue(false);
+        isLoading.setValue(false);
+        scrollToTop.setValue(0);
     }
 
     public void setLoaded() {
@@ -322,6 +368,14 @@ public class DeliveryViewModel extends BaseAndroidViewModel {
         return broadcastParcelNotify;
     }
 
+    public MutableLiveData<Integer> getScrollToTop() {
+        return scrollToTop;
+    }
+
+    public void setScrollToTop(MutableLiveData<Integer> scrollToTop) {
+        this.scrollToTop = scrollToTop;
+    }
+
     public void setBroadcastParcelNotify(ReceiveParcelNotify broadcastParcelNotify) {
         this.broadcastParcelNotify = broadcastParcelNotify;
     }
@@ -332,5 +386,9 @@ public class DeliveryViewModel extends BaseAndroidViewModel {
 
     public void setReceiverLoadmore(BroadcastReceiver receiverLoadmore) {
         this.receiverLoadmore = receiverLoadmore;
+    }
+
+    public BroadcastReceiver getReceiverLoading() {
+        return receiverLoading;
     }
 }

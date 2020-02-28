@@ -198,8 +198,9 @@ public class DeliveryViewModel extends BaseAndroidViewModel {
             LogUtils.d("onReceived at view : " + data);
             Delivery delivery = mRepository.getDeliveryFrom(data);
             if (delivery != null) {
-                adapter.getmNotifyList().add(0, delivery);
+                adapter.getmListData().add(0, delivery);
                 adapter.notifyItemInserted(0);
+                mApiContentProviderHelper.updateVisibleGone();
                 scrollToTop.postValue(0);
                 if (adapter.getItemCount() == Constant.MAX_SIZE_LIST) {
                     adapter.notifyItemChanged(Constant.MAX_SIZE_LIST - 1);
@@ -224,7 +225,7 @@ public class DeliveryViewModel extends BaseAndroidViewModel {
                     adapter.removeLoadmore();
                     adapter.addAll(deliveries);
                     isLoadingmore.postValue(false);
-                    if (adapter.getmNotifyList().size() > Constant.MAX_SIZE_LIST)
+                    if (adapter.getmListData().size() > Constant.MAX_SIZE_LIST)
                         noMoreItem(); // list max is 128 item. no show more
                 } else {
                     noMoreItem();

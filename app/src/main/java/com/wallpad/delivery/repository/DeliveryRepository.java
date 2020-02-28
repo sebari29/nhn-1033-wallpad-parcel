@@ -144,23 +144,5 @@ public class DeliveryRepository {
         return null;
     }
 
-    /**
-     * Init dummy data
-     *
-     * @return dummy data
-     */
-    public List<Delivery> initDummyNotifyData() {
-        List<Delivery> listNoti = new ArrayList<>();
-        // add dummy data
-        for (int i = 0; i < 10; i++) {
-            Delivery delivery = new Delivery();
-            delivery.setId("" + i);
-            delivery.setName("Lorem Ipsum" + i);
-            delivery.setStatus("Ipsum " + i);
-            delivery.setTimeSend("2019.07.25 오후 07:32");
-            delivery.setTimeReceive("2019.07.26 오후 07:32");
-            listNoti.add(delivery);
-        }
-        return listNoti;
-    }
+
 }

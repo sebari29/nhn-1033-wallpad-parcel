@@ -82,6 +82,7 @@ public class DeliveryRepository {
                 delivery.setStatus("0");
                 SimpleDateFormat sdf = new SimpleDateFormat(DATETIME_YYYYMMDDTHHMMSS);
                 Date date = sdf.parse((String) map.get("Time"));
+                delivery.setTimeFromServer((String) map.get("Time"));
                 String dateStr = new SimpleDateFormat(DATETIME_YYYYMMDDAHHMM, Locale.getDefault()).format(date);
                 delivery.setTimeSend(dateStr);
                 return delivery;

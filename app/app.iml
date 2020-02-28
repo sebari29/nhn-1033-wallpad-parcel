@@ -113,11 +113,13 @@
     <orderEntry type="library" name="Gradle: androidx.arch.core:core-common:2.1.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.annotation:annotation:1.1.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.constraintlayout:constraintlayout-solver:1.1.3@jar" level="project" />
-    <orderEntry type="library" name="Gradle: org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.0.5@jar" level="project" />
-    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.3.50@jar" level="project" />
-    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.3.50@jar" level="project" />
-    <orderEntry type="library" name="Gradle: org.jetbrains:annotations:13.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.code.gson:gson:2.8.6@jar" level="project" />
+    <orderEntry type="library" name="Gradle: org.antlr:antlr4:4.7.1@jar" level="project" />
+    <orderEntry type="library" name="Gradle: org.antlr:antlr4-runtime:4.7.1@jar" level="project" />
+    <orderEntry type="library" name="Gradle: org.antlr:ST4:4.0.8@jar" level="project" />
+    <orderEntry type="library" name="Gradle: org.antlr:antlr-runtime:3.5.2@jar" level="project" />
+    <orderEntry type="library" name="Gradle: org.abego.treelayout:org.abego.treelayout.core:1.0.3@jar" level="project" />
+    <orderEntry type="library" name="Gradle: org.glassfish:javax.json:1.0.4@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.ibm.icu:icu4j:58.2@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.auto:auto-common:0.10@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.guava:guava:27.0.1-jre@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.guava:failureaccess:1.0.1@jar" level="project" />
@@ -127,17 +129,15 @@
     <orderEntry type="library" name="Gradle: com.google.errorprone:error_prone_annotations:2.2.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.j2objc:j2objc-annotations:1.1@jar" level="project" />
     <orderEntry type="library" name="Gradle: org.codehaus.mojo:animal-sniffer-annotations:1.17@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.auto.value:auto-value-annotations:1.6.3@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup:javapoet:1.8.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: org.antlr:antlr4:4.7.1@jar" level="project" />
-    <orderEntry type="library" name="Gradle: org.antlr:antlr4-runtime:4.7.1@jar" level="project" />
-    <orderEntry type="library" name="Gradle: org.antlr:ST4:4.0.8@jar" level="project" />
-    <orderEntry type="library" name="Gradle: org.antlr:antlr-runtime:3.5.2@jar" level="project" />
-    <orderEntry type="library" name="Gradle: org.abego.treelayout:org.abego.treelayout.core:1.0.3@jar" level="project" />
-    <orderEntry type="library" name="Gradle: org.glassfish:javax.json:1.0.4@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.ibm.icu:icu4j:58.2@jar" level="project" />
-    <orderEntry type="library" name="Gradle: org.xerial:sqlite-jdbc:3.25.2@jar" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.0.5@jar" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.3.50@jar" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.3.50@jar" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains:annotations:13.0@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.code.gson:gson:2.8.6@jar" level="project" />
     <orderEntry type="library" name="Gradle: commons-codec:commons-codec:1.10@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.auto.value:auto-value-annotations:1.6.3@jar" level="project" />
+    <orderEntry type="library" name="Gradle: org.xerial:sqlite-jdbc:3.25.2@jar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.databinding:databinding-adapters:3.5.3@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.databinding:databinding-runtime:3.5.3@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.multidex:multidex:2.0.1@aar" level="project" />
@@ -181,6 +181,7 @@
     <orderEntry type="library" name="Gradle: androidx.constraintlayout:constraintlayout:1.1.3@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.intuit.sdp:sdp-android:1.0.6@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.blankj:utilcode:1.5.1@aar" level="project" />
+    <orderEntry type="module" module-name="dialog" />
     <orderEntry type="module" module-name="basemvvm" />
     <orderEntry type="module" module-name="net" />
   </component>

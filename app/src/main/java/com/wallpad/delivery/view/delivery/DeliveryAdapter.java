@@ -27,7 +27,7 @@ public class DeliveryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     private final static int TYPE_EMPTY_ITEM = 0;
     private final static String TAG = DeliveryAdapter.class.getSimpleName();
 
-    private List<Delivery> mNotifyList = new ArrayList<>();
+    private List<Delivery> mListData = new ArrayList<>();
 
 
     public DeliveryAdapter() {
@@ -61,27 +61,27 @@ public class DeliveryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         if (getItemViewType(position) == TYPE_ITEM) {
-            Delivery item = mNotifyList.get(position);
+            Delivery item = mListData.get(position);
             ((DeliveryViewHolder) holder).bind(item);
         }
     }
 
     @Override
     public int getItemCount() {
-        if (mNotifyList.size() < 5) {
+        if (mListData.size() < 5) {
             return Constant.SIZE_ITEM_IN_LIST;
         }
-        if (mNotifyList.size() > Constant.MAX_SIZE_LIST) {
+        if (mListData.size() > Constant.MAX_SIZE_LIST) {
             return Constant.MAX_SIZE_LIST;
         }
-        return mNotifyList.size();
+        return mListData.size();
     }
 
     @Override
     public int getItemViewType(int position) {
 
-        if (position < mNotifyList.size()) {
-            if (mNotifyList.get(position) == null)
+        if (position < mListData.size()) {
+            if (mListData.get(position) == null)
                 return TYPE_LOAD_MORE;
             return TYPE_ITEM;
 
@@ -93,8 +93,8 @@ public class DeliveryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     public void setNoticeList(List<Delivery> noticeList) {
         if (noticeList == null) return;
-        mNotifyList.clear();
-        mNotifyList.addAll(noticeList);
+        mListData.clear();
+        mListData.addAll(noticeList);
         notifyDataSetChanged();
     }
 
@@ -103,21 +103,21 @@ public class DeliveryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
 
     public void addLoadmoreView() {
-        mNotifyList.add(null);
+        mListData.add(null);
         notifyItemInserted(getItemCount() - 1);
     }
 
     public void addAll(List<Delivery> o) {
-        int oldPos = mNotifyList.size();
-        mNotifyList.addAll(o);
+        int oldPos = mListData.size();
+        mListData.addAll(o);
 //        notifyDataSetChanged();
-        notifyItemRangeInserted(oldPos, mNotifyList.size());
+        notifyItemRangeInserted(oldPos, mListData.size());
     }
 
     public void removeLoadmore() {
-        if (mNotifyList.size() > 0) {
+        if (mListData.size() > 0) {
             int indexLast = getItemCount() - 1;
-            mNotifyList.remove(indexLast);
+            mListData.remove(indexLast);
             notifyItemRemoved(indexLast);
             LogUtils.d("remove loadmoreview now ...");
 //            notifyItemRangeRemoved(indexLast, getItemCount());
@@ -125,16 +125,16 @@ public class DeliveryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         }
     }
 
-    public List<Delivery> getmNotifyList() {
-        return mNotifyList;
+    public List<Delivery> getmListData() {
+        return mListData;
     }
 
     public void remove(int i) {
-        mNotifyList.remove(i);
+        mListData.remove(i);
     }
 
     public void addItem(List<Delivery> o) {
-        mNotifyList.addAll(o);
+        mListData.addAll(o);
 
     }
 

@@ -73,7 +73,7 @@ public class DatabindingAdapter {
     public static void setAdapter(RecyclerView recyclerView, RecyclerView.Adapter<?> adapter) {
         recyclerView.setAdapter(adapter);
     }
-    @BindingAdapter({"bind:scrollTo"})
+    @BindingAdapter({"android:scrollTo"})
     public static void scrollTo(RecyclerView recyclerView, int position) {
         recyclerView.scrollToPosition(position);
     }

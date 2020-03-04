@@ -39,23 +39,21 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="오전" />
 
-            <TextClock
+            <TextView
                 android:id="@+id/tvCurrentTimeInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_5dp"
                 android:fontFamily="@font/notosans_regular"
-                android:format12Hour="hh:mm"
                 android:gravity="center"
+                android:text="@{viewmodel.txtTime}"
                 android:includeFontPadding="false"
-                android:padding="0dp"
+                android:padding="@dimen/_0dp"
                 android:textColor="@color/current_time_color"
                 android:textSize="@dimen/_32sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/tvAMPM"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="09:30" />
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ImageView

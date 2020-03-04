@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 
 import androidx.lifecycle.Observer;
 
+import com.blankj.utilcode.util.LogUtils;
 import com.wallpad.basemvvm.view.BaseFragment;
 import com.wallpad.delivery.MainActivity;
 import com.wallpad.delivery.R;
@@ -22,10 +23,10 @@ import com.wallpad.delivery.databinding.DeliveryFragmentBinding;
 import com.wallpad.delivery.view.customview.loadmore.WrapContentLinearLayoutManager;
 import com.wallpad.delivery.viewmodel.DeliveryViewModel;
 
+import java.util.Date;
 import java.util.List;
 
 import static com.wallpad.delivery.common.Constant.INTENT_ACTION_LOADMORE_PARCEL;
-import static com.wallpad.delivery.common.Constant.INTENT_ACTION_NOTICE;
 import static com.wallpad.delivery.common.Constant.INTENT_ACTION_PARCEL_INQUIRY_NOTICE;
 
 public class DeliveryFragment extends BaseFragment {
@@ -43,12 +44,12 @@ public class DeliveryFragment extends BaseFragment {
 
     private final static String GSMART_SERVICE_CLASS_NAME = Constant.GSMART_PACKAGE_NAME + ".GSmartService";
 
-
-    private BroadcastReceiver mUpdateTimeReceiver = new BroadcastReceiver() {
+    private final BroadcastReceiver broadcastUpdateTime = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-//            LogUtils.d(TAG, "onReceive() - ");
-            mDeliveryViewModel.changeTxtAMorPM();
+            Date dateTime = new Date(intent.getLongExtra(Constant.MSG, 0));
+            mDeliveryViewModel.changeTxtAMorPM(dateTime);
+
         }
     };
 
@@ -91,7 +92,7 @@ public class DeliveryFragment extends BaseFragment {
         binding.noticeList.setHasFixedSize(true);
         binding.noticeList.setLayoutManager(new WrapContentLinearLayoutManager(getContext()));
         binding.btnClose.setOnClickListener(mOnClickListener);
-        mDeliveryViewModel.changeTxtAMorPM();
+        mDeliveryViewModel.changeTxtAMorPM(new Date());
     }
 
     @Override
@@ -100,7 +101,7 @@ public class DeliveryFragment extends BaseFragment {
         mDeliveryViewModel.getIsLoading().observe(this, new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean aBoolean) {
-                if (aBoolean){
+                if (aBoolean) {
                     ((MainActivity) getActivity()).showLoading();
                 } else {
                     new Handler().postDelayed(new Runnable() {
@@ -127,7 +128,7 @@ public class DeliveryFragment extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
-        getContext().registerReceiver(mUpdateTimeReceiver, new IntentFilter(Intent.ACTION_TIME_TICK));
+        getContext().registerReceiver(broadcastUpdateTime, new IntentFilter(Constant.TAG_UPDATE_TIME));
         getContext().registerReceiver(mDeliveryViewModel.getBroadcastParcelNotify(), new IntentFilter(INTENT_ACTION_PARCEL_INQUIRY_NOTICE));
         getContext().registerReceiver(mDeliveryViewModel.getReceiverLoadmore(), new IntentFilter(INTENT_ACTION_LOADMORE_PARCEL));
         IntentFilter intentFilterLoading = new IntentFilter(Constant.INTENT_ACTION_SHOW_LOADING);
@@ -137,7 +138,7 @@ public class DeliveryFragment extends BaseFragment {
     @Override
     public void onPause() {
         super.onPause();
-        getContext().unregisterReceiver(mUpdateTimeReceiver);
+        getContext().unregisterReceiver(broadcastUpdateTime);
         getContext().unregisterReceiver(mDeliveryViewModel.getBroadcastParcelNotify());
         getContext().unregisterReceiver(mDeliveryViewModel.getReceiverLoadmore());
         getContext().unregisterReceiver(mDeliveryViewModel.getReceiverLoading());

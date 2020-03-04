@@ -48,7 +48,6 @@ public class DeliveryFragment extends BaseFragment {
         @Override
         public void onReceive(Context context, Intent intent) {
             Date dateTime = new Date(intent.getLongExtra(Constant.MSG, 0));
-            LogUtils.d("receiver-time",dateTime.toString());
             mDeliveryViewModel.changeTxtAMorPM(dateTime);
 
         }

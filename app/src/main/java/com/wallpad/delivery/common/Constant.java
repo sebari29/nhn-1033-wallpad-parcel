@@ -11,7 +11,7 @@ public class Constant {
     public static final int HEIGHT_ITEM_GRID = 3;
     public static final float MDPI_SCREEN = 160f;
     public static final String TAG_OPEN_NEW_FRAGMENT = "OpenNewFragment";
-    public static final String TAG_UPDATE_TIME = "broadCastUpdateTime";
+    public static final String TAG_UPDATE_TIME = "action_time";
 
     public static final String TAG_UPDATE_AIR_MONITOR = "broadCastUpdateAirMonitor";
     public static final String ACTION_LOAD_AIR_VALUE = "broadCastLoadAirValue";

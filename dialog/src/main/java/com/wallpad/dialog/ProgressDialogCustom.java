@@ -11,6 +11,9 @@ import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 /**
  * Created by Duong.
@@ -19,9 +22,12 @@ public class ProgressDialogCustom extends ProgressDialog {
 
     Context context;
     private Dialog mProgressDialog;
-    public ProgressDialogCustom(Context context){
+    private Timer timeOut;
+    private final static int TIME_OUT = 3000;
+
+    public ProgressDialogCustom(Context context) {
         super(context);
-        this.context=context;
+        this.context = context;
         LayoutInflater factory = LayoutInflater.from(context);
         mProgressDialog = new Dialog(context);
         mProgressDialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
@@ -37,22 +43,35 @@ public class ProgressDialogCustom extends ProgressDialog {
         rotateAnimation.setDuration(1000);
         rotateAnimation.setRepeatCount(Animation.INFINITE);
         view.findViewById(R.id.progressbar).startAnimation(rotateAnimation);
-
+        timeOut = new Timer(false);
     }
-   public void showDialog() {
+
+    public void showDialog() {
         if (mProgressDialog != null) {
             mProgressDialog.show();
+            try {
+                timeOut.schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+                        hideDialog();
+                        cancel();
+                    }
+                }, TIME_OUT);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+
         }
     }
 
     public void hideDialog() {
         if (mProgressDialog != null && mProgressDialog.isShowing()) {
             mProgressDialog.dismiss();
+            try {
+                cancel();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
         }
     }
-
-
-
-
-
 }

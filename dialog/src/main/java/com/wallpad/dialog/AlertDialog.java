@@ -2,17 +2,20 @@ package com.wallpad.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ObservableField;
 
 import com.wallpad.dialog.common.Constant;
+import com.wallpad.dialog.databinding.AlertDialogBinding;
 
 /**
  *
@@ -229,7 +232,6 @@ public class AlertDialog extends Dialog {
         assert packageName != null;
         if (iClickDialog != null) {
             iClickDialog.onClick(packageName);
-            iClickDialog.onReadNotice(dataTime.get(), dataDetails.get());
         }
         dismiss();
     }
@@ -237,7 +239,5 @@ public class AlertDialog extends Dialog {
 
     public interface IClickDialog {
         void onClick(String packageName);
-
-        void onReadNotice(String time, String details);
     }
 }

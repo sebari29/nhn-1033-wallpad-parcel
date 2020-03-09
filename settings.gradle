@@ -1,2 +1,2 @@
-include ':app', ':basemvvm', ':net', ':dialognew'
+include ':app', ':basemvvm', ':net', ':dialog'
 rootProject.name='Delivery'

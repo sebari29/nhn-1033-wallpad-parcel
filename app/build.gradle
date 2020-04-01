@@ -59,13 +59,6 @@ dependencies {
 
     //log
     implementation 'com.blankj:utilcode:1.5.1'
-    ///room sqlite
-    def room_version = "2.2.5"
-    implementation "androidx.room:room-runtime:$room_version"
-    annotationProcessor "androidx.room:room-compiler:$room_version"
-    implementation "androidx.room:room-ktx:$room_version"
-    implementation "androidx.room:room-rxjava2:$room_version"
-    implementation "androidx.room:room-guava:$room_version"
 
     //gson Google
     implementation 'com.google.code.gson:gson:2.8.6'

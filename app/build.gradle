@@ -59,12 +59,6 @@ dependencies {
 
     //log
     implementation 'com.blankj:utilcode:1.5.1'
-    ///room sqlite
-    implementation 'androidx.room:room-runtime:2.2.2'
-    implementation 'androidx.room:room-compiler:2.2.2'
-    androidTestImplementation 'androidx.room:room-testing:2.2.2'
-    annotationProcessor 'androidx.room:room-compiler:2.2.2'
-
 
     //gson Google
     implementation 'com.google.code.gson:gson:2.8.6'

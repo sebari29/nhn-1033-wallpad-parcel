@@ -54,9 +54,9 @@ public class Constant {
     public static final String PACKAGE_APP = "com.wallpad.parking.lot";
     public static final String KEY_PACKAGE_NAME = "source_application_packageName";
 
-    public static final String TYPE_SERIF = "SERIF";
-    public static final String TYPE_DEFAULT = "DEFAULT";
-    public static final String TYPE_MONOSPACE = "MONOSPACE";
+    public static final String TYPE_SERIF = "serif";
+    public static final String TYPE_DEFAULT = "default";
+    public static final String TYPE_MONOSPACE = "monospace";
 
 
     public static final String NAME_FILE_SERIF = "NotoSansCJKkr-Regular.otf";

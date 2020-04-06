@@ -3,6 +3,7 @@
     package="com.wallpad.delivery">
 
     <application
+        android:name=".application.AppController"
         android:allowBackup="true"
         android:icon="@mipmap/app_icon_info_06"
         android:label="@string/app_name"

@@ -40,7 +40,7 @@ public class Constant {
     public static final int DATABASE_STATE_EXIST = 0;
 
     public static final int DATABASE_STATE_NOT_EXIST = 1;
-    ;
+
     public static final String INTENT_ACTION_NOTICE = "notice_arrived";
     public static final String INTENT_ACTION_PARCEL_INQUIRY_NOTICE = "parcel_inquiry_arrived";
     public static final String INTENT_ACTION_LOADMORE_PARCEL = "loadmore_parcel_inquiry";
@@ -53,4 +53,14 @@ public class Constant {
     public static int TIME_DELAY_LOADING = 3000;
     public static final String PACKAGE_APP = "com.wallpad.parking.lot";
     public static final String KEY_PACKAGE_NAME = "source_application_packageName";
+
+    public static final String TYPE_SERIF = "SERIF";
+    public static final String TYPE_DEFAULT = "DEFAULT";
+    public static final String TYPE_MONOSPACE = "MONOSPACE";
+
+
+    public static final String NAME_FILE_SERIF = "NotoSansCJKkr-Regular.otf";
+    public static final String NAME_FILE_DEFAULT = "NotoSansCJK_Medium.otf";
+    public static final String NAME_FILE_MONOSPACE = "NotoSansCJK-Light.otf";
+
 }

@@ -31,7 +31,7 @@
             <TextView
                 android:layout_width="@dimen/delivery_item_txt_timesend_size"
                 android:layout_height="match_parent"
-                android:fontFamily="@font/notosans_regular"
+                android:fontFamily="SERIF"
                 android:gravity="center"
                 android:singleLine="true"
                 android:text="@{item.timeSend}"
@@ -52,7 +52,7 @@
             <TextView
                 android:layout_width="@dimen/delivery_item_txt_time_receive_size"
                 android:layout_height="match_parent"
-                android:fontFamily="@font/notosans_regular"
+                android:fontFamily="SERIF"
                 android:gravity="center"
                 android:singleLine="true"
                 android:text="@{item.timeReceive}"
@@ -73,7 +73,7 @@
             <TextView
                 android:layout_width="@dimen/_168dp"
                 android:layout_height="match_parent"
-                android:fontFamily="@font/notosans_regular"
+                android:fontFamily="SERIF"
                 android:gravity="center"
                 android:singleLine="true"
 
@@ -94,7 +94,7 @@
             <TextView
                 android:layout_width="@dimen/_130dp"
                 android:layout_height="match_parent"
-                android:fontFamily="@font/notosans_regular"
+                android:fontFamily="SERIF"
                 android:gravity="center"
                 android:singleLine="true"
                 android:setEventType="@{item.status}"

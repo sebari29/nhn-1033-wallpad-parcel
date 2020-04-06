@@ -20,9 +20,9 @@ public class AppController extends MultiDexApplication {
         super.onCreate();
         mInstance = this;
         MultiDex.install(this);
-        TypefaceUtil.overrideFont(getApplicationContext(), Constant.TYPE_SERIF, Constant.NAME_FILE_SERIF);//regular
-        TypefaceUtil.overrideFont(getApplicationContext(), Constant.TYPE_DEFAULT, Constant.NAME_FILE_DEFAULT);//medium
-        TypefaceUtil.overrideFont(getApplicationContext(), Constant.TYPE_MONOSPACE, Constant.NAME_FILE_MONOSPACE);//light
+        TypefaceUtil.overrideFont(getApplicationContext(), Constant.TYPE_NOTOSANS_REGULAR, Constant.NAME_FILE_SERIF);//regular
+        TypefaceUtil.overrideFont(getApplicationContext(), Constant.TYPE_NOTOSANS_MEDIUM, Constant.NAME_FILE_DEFAULT);//medium
+        TypefaceUtil.overrideFont(getApplicationContext(), Constant.TYPE_NOTOSANS_LIGHT, Constant.NAME_FILE_MONOSPACE);//light
     }
 
 }

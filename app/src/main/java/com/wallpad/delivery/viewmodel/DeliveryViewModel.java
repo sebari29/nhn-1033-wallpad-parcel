@@ -182,7 +182,7 @@ public class DeliveryViewModel extends BaseAndroidViewModel {
         @Override
         public void onChange(boolean selfChange, Uri uri) {
             LogUtils.d(TAG, "mContentObserver - onChange - selfChange = " + selfChange + ", uri = " + uri.toString());
-            if (mApiContentProviderHelper.validateDemoModeSonySettingUri(uri)) {
+            if (mApiContentProviderHelper.validateDemoModeSettingUri(uri)) {
                 refreshData();
             }
             super.onChange(selfChange, uri);

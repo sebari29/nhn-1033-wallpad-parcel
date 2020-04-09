@@ -168,7 +168,6 @@
     <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-runtime:2.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.savedstate:savedstate:1.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.interpolator:interpolator:1.0.0@aar" level="project" />
-    <orderEntry type="library" name="Gradle: com.koushikdutta.async:androidasync:2.2.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.blankj:utilcode:1.5.1@aar" level="project" />
   </component>
 </module>

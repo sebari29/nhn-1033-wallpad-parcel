@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_50dp"
             android:layout_marginTop="@dimen/_13dp"
-            android:format12Hour="a HH:mm"
+            android:format12Hour="a hh:mm"
             android:orientation="horizontal"
             android:textColor="@color/current_time_color"
             android:textSize="@dimen/_32sp"

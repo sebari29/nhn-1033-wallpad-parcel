@@ -16,45 +16,18 @@
         android:background="@drawable/background"
         tools:context=".fragment.NoticesFragment">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <TextClock
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_50dp"
             android:layout_marginTop="@dimen/_13dp"
+            android:format12Hour="a HH:mm"
             android:orientation="horizontal"
+            android:textColor="@color/current_time_color"
+            android:textSize="@dimen/_32sp"
+            android:typeface="serif"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/tvAMPM"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:typeface="serif"
-                android:text="@{ viewmodel.txtAMorPM }"
-                android:textColor="@color/current_time_color"
-                android:textSize="@dimen/_32sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/tvCurrentTimeInfo"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="오전" />
-
-            <TextView
-                android:id="@+id/tvCurrentTimeInfo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_5dp"
-                android:typeface="serif"
-                android:gravity="center"
-                android:text="@{viewmodel.txtTime}"
-                android:includeFontPadding="false"
-                android:padding="@dimen/_0dp"
-                android:textColor="@color/current_time_color"
-                android:textSize="@dimen/_32sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/tvAMPM"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/btnClose"

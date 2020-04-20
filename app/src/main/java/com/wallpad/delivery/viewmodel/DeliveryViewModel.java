@@ -54,8 +54,6 @@ public class DeliveryViewModel extends BaseAndroidViewModel {
     private final Handler mMainHandler = new Handler();
     private final static String TAG = DeliveryViewModel.class.getSimpleName();
     private DeliveryAdapter adapter;
-    public final MutableLiveData<String> txtAMorPM = new MutableLiveData<>();
-    public final MutableLiveData<String> txtTime = new MutableLiveData<>();
     private APIContentProviderHelper mApiContentProviderHelper;
     private MutableLiveData<Boolean> isLoadingmore = new MutableLiveData<>();
     private MutableLiveData<Integer> scrollToTop = new MutableLiveData<>();
@@ -291,14 +289,6 @@ public class DeliveryViewModel extends BaseAndroidViewModel {
 
     public void setLoaded() {
         isLoadingmore.postValue(false);
-    }
-
-    /**
-     * Change time info to AM or PM
-     */
-    public void changeTxtAMorPM(Date date) {
-        txtAMorPM.postValue(new DateTimeUtils().getAMorPMTime(date));
-        txtTime.postValue(new DateTimeUtils().get12hourTime(date));
     }
 
     public DeliveryAdapter getAdapter() {

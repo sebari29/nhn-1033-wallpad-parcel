@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 
 import androidx.lifecycle.Observer;
 
-import com.blankj.utilcode.util.LogUtils;
 import com.wallpad.basemvvm.view.BaseFragment;
 import com.wallpad.delivery.MainActivity;
 import com.wallpad.delivery.R;
@@ -43,15 +42,6 @@ public class DeliveryFragment extends BaseFragment {
     }
 
     private final static String GSMART_SERVICE_CLASS_NAME = Constant.GSMART_PACKAGE_NAME + ".GSmartService";
-
-    private final BroadcastReceiver broadcastUpdateTime = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            Date dateTime = new Date(intent.getLongExtra(Constant.MSG, 0));
-            mDeliveryViewModel.changeTxtAMorPM(dateTime);
-
-        }
-    };
 
     private final View.OnClickListener mOnClickListener = new View.OnClickListener() {
         @Override
@@ -92,7 +82,6 @@ public class DeliveryFragment extends BaseFragment {
         binding.noticeList.setHasFixedSize(true);
         binding.noticeList.setLayoutManager(new WrapContentLinearLayoutManager(getContext()));
         binding.btnClose.setOnClickListener(mOnClickListener);
-        mDeliveryViewModel.changeTxtAMorPM(new Date());
     }
 
     @Override
@@ -128,7 +117,6 @@ public class DeliveryFragment extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
-        getContext().registerReceiver(broadcastUpdateTime, new IntentFilter(Constant.TAG_UPDATE_TIME));
         getContext().registerReceiver(mDeliveryViewModel.getBroadcastParcelNotify(), new IntentFilter(INTENT_ACTION_PARCEL_INQUIRY_NOTICE));
         getContext().registerReceiver(mDeliveryViewModel.getReceiverLoadmore(), new IntentFilter(INTENT_ACTION_LOADMORE_PARCEL));
         IntentFilter intentFilterLoading = new IntentFilter(Constant.INTENT_ACTION_SHOW_LOADING);
@@ -138,7 +126,6 @@ public class DeliveryFragment extends BaseFragment {
     @Override
     public void onPause() {
         super.onPause();
-        getContext().unregisterReceiver(broadcastUpdateTime);
         getContext().unregisterReceiver(mDeliveryViewModel.getBroadcastParcelNotify());
         getContext().unregisterReceiver(mDeliveryViewModel.getReceiverLoadmore());
         getContext().unregisterReceiver(mDeliveryViewModel.getReceiverLoading());

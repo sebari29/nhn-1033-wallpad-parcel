@@ -2,8 +2,6 @@ package com.wallpad.delivery.repository;
 
 import android.app.Application;
 
-import androidx.annotation.NonNull;
-
 import com.blankj.utilcode.util.LogUtils;
 import com.wallpad.delivery.asynctask.AsynctaskLoadData;
 import com.wallpad.delivery.common.APIContentProviderHelper;
@@ -14,7 +12,6 @@ import com.wallpad.net.sample.parcelInfoInquiry.response.HNMLInquiryResponse;
 import com.wallpad.net.sample.parcelInfoInquiry.response.Output;
 import com.wallpad.net.sample.parcelnotification.request.HNMLParcelNotification;
 
-import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -91,8 +88,6 @@ public class DeliveryRepository {
                 // refreshData();
                 return null;
             }
-        } catch (IOException e) {
-            e.printStackTrace();
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -136,8 +131,6 @@ public class DeliveryRepository {
             } else {
                 return null;
             }
-        } catch (IOException e) {
-            e.printStackTrace();
         } catch (ParseException e) {
             e.printStackTrace();
         }

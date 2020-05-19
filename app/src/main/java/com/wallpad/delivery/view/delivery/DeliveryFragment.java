@@ -1,6 +1,5 @@
 package com.wallpad.delivery.view.delivery;
 
-import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -22,7 +21,6 @@ import com.wallpad.delivery.databinding.DeliveryFragmentBinding;
 import com.wallpad.delivery.view.customview.loadmore.WrapContentLinearLayoutManager;
 import com.wallpad.delivery.viewmodel.DeliveryViewModel;
 
-import java.util.Date;
 import java.util.List;
 
 import static com.wallpad.delivery.common.Constant.INTENT_ACTION_LOADMORE_PARCEL;
@@ -158,17 +156,4 @@ public class DeliveryFragment extends BaseFragment {
         super.onDestroy();
 
     }
-
-
-    @Override
-    public void showLoading() {
-
-    }
-
-    @Override
-    public void hideLoading() {
-
-    }
-
-
 }

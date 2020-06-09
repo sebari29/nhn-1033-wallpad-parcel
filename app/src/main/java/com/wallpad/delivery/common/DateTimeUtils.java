@@ -10,6 +10,7 @@ public class DateTimeUtils {
     private final static String pattern_day = "dd";
     private final static String pattern_DateOfWeek = "EEEE";
     private final static String pattern_AMorPM = "a";
+    private final static String pattern_hour_12 = "hh:mm";
 
     public String getYearCurrent() {
         SimpleDateFormat sdf = new SimpleDateFormat(pattern_year, Locale.getDefault());
@@ -31,9 +32,19 @@ public class DateTimeUtils {
         return sdf.format(new Date());
     }
 
-    public String getAMorPMTime() {
+    /**
+     * Get current time info
+     *
+     * @return AM or PM
+     */
+    public String getAMorPMTime(Date date) {
         SimpleDateFormat sdf = new SimpleDateFormat(pattern_AMorPM, Locale.getDefault());
-        return sdf.format(new Date());
+        return sdf.format(date);
+    }
+
+    public String get12hourTime(Date date) {
+        SimpleDateFormat sdf = new SimpleDateFormat(pattern_hour_12, Locale.getDefault());
+        return sdf.format(date);
     }
 
 }

@@ -16,47 +16,18 @@
         android:background="@drawable/background"
         tools:context=".fragment.NoticesFragment">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <TextClock
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_50dp"
             android:layout_marginTop="@dimen/_13dp"
+            android:format12Hour="a hh:mm"
             android:orientation="horizontal"
+            android:textColor="@color/current_time_color"
+            android:textSize="@dimen/_32sp"
+            android:typeface="serif"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/tvAMPM"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/notosans_regular"
-                android:text="@{ viewmodel.txtAMorPM }"
-                android:textColor="@color/current_time_color"
-                android:textSize="@dimen/_32sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/tvCurrentTimeInfo"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="오전" />
-
-            <TextClock
-                android:id="@+id/tvCurrentTimeInfo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_5dp"
-                android:fontFamily="@font/notosans_regular"
-                android:format12Hour="hh:mm"
-                android:gravity="center"
-                android:includeFontPadding="false"
-                android:padding="0dp"
-                android:textColor="@color/current_time_color"
-                android:textSize="@dimen/_32sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/tvAMPM"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="09:30" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/btnClose"
@@ -75,7 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_50dp"
             android:layout_marginTop="@dimen/_98dp"
-            android:fontFamily="@font/notosans_regular"
+            android:typeface="serif"
             android:text="@string/app_title"
             android:textColor="@android:color/white"
             android:textSize="@dimen/_28sp"
@@ -113,7 +84,7 @@
                     android:id="@+id/average_power_usage_label"
                     android:layout_width="@dimen/delivery_item_txt_timesend_size"
                     android:layout_height="match_parent"
-                    android:fontFamily="@font/notosans_regular"
+                    android:typeface="serif"
                     android:gravity="center"
                     android:text="@string/title_delivery_send"
                     android:textColor="@android:color/white"
@@ -133,7 +104,7 @@
                     android:id="@+id/textViewWithoutPadding"
                     android:layout_width="@dimen/delivery_item_txt_time_receive_size"
                     android:layout_height="match_parent"
-                    android:fontFamily="@font/notosans_regular"
+                    android:typeface="serif"
                     android:gravity="center"
                     android:text="@string/delivery_title_receiver"
                     android:textColor="@android:color/white"
@@ -151,7 +122,7 @@
                 <TextView
                     android:layout_width="@dimen/_168dp"
                     android:layout_height="match_parent"
-                    android:fontFamily="@font/notosans_regular"
+                    android:typeface="serif"
                     android:gravity="center"
                     android:text="@string/delivery_title_name"
                     android:textColor="@android:color/white"
@@ -169,7 +140,7 @@
                 <TextView
                     android:layout_width="@dimen/_130dp"
                     android:layout_height="match_parent"
-                    android:fontFamily="@font/notosans_regular"
+                    android:typeface="serif"
                     android:gravity="center"
                     android:text="@string/delivery_title_pay"
                     android:textColor="@android:color/white"

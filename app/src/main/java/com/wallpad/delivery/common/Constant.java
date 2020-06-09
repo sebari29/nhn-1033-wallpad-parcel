@@ -11,7 +11,7 @@ public class Constant {
     public static final int HEIGHT_ITEM_GRID = 3;
     public static final float MDPI_SCREEN = 160f;
     public static final String TAG_OPEN_NEW_FRAGMENT = "OpenNewFragment";
-    public static final String TAG_UPDATE_TIME = "broadCastUpdateTime";
+    public static final String TAG_UPDATE_TIME = "action_time";
 
     public static final String TAG_UPDATE_AIR_MONITOR = "broadCastUpdateAirMonitor";
     public static final String ACTION_LOAD_AIR_VALUE = "broadCastLoadAirValue";
@@ -40,7 +40,7 @@ public class Constant {
     public static final int DATABASE_STATE_EXIST = 0;
 
     public static final int DATABASE_STATE_NOT_EXIST = 1;
-    ;
+
     public static final String INTENT_ACTION_NOTICE = "notice_arrived";
     public static final String INTENT_ACTION_PARCEL_INQUIRY_NOTICE = "parcel_inquiry_arrived";
     public static final String INTENT_ACTION_LOADMORE_PARCEL = "loadmore_parcel_inquiry";
@@ -53,4 +53,14 @@ public class Constant {
     public static int TIME_DELAY_LOADING = 3000;
     public static final String PACKAGE_APP = "com.wallpad.parking.lot";
     public static final String KEY_PACKAGE_NAME = "source_application_packageName";
+
+    public static final String TYPE_SERIF = "serif";
+    public static final String TYPE_DEFAULT = "default";
+    public static final String TYPE_MONOSPACE = "monospace";
+
+
+    public static final String NAME_FILE_SERIF = "NotoSansCJKkr-Regular.otf";
+    public static final String NAME_FILE_DEFAULT = "NotoSansCJK_Medium.otf";
+    public static final String NAME_FILE_MONOSPACE = "NotoSansCJK-Light.otf";
+
 }

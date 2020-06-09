@@ -1,2 +1,2 @@
-include ':app', ':basemvvm', ':net', ':dialognew'
+include ':app', ':gsmart-module-basemvvm', ':gsmart-module-net', ':gsmart-module-dialog', ':gsmart-module-aidl'
 rootProject.name='Delivery'

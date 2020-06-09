@@ -150,7 +150,7 @@ public class APIContentProviderHelper {
      * @param uri
      * @return true if valid, otherwise false
      */
-    public boolean validateDemoModeSonySettingUri(Uri uri) {
+    public boolean validateDemoModeSettingUri(Uri uri) {
         return uri != null && (API_CACHE_CONTENT_URI.equals(uri));
     }
 }

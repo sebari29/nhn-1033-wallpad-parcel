@@ -54,7 +54,6 @@ public class DeliveryViewModel extends BaseAndroidViewModel {
     private final Handler mMainHandler = new Handler();
     private final static String TAG = DeliveryViewModel.class.getSimpleName();
     private DeliveryAdapter adapter;
-    public final MutableLiveData<String> txtAMorPM = new MutableLiveData<>();
     private APIContentProviderHelper mApiContentProviderHelper;
     private MutableLiveData<Boolean> isLoadingmore = new MutableLiveData<>();
     private MutableLiveData<Integer> scrollToTop = new MutableLiveData<>();
@@ -181,7 +180,7 @@ public class DeliveryViewModel extends BaseAndroidViewModel {
         @Override
         public void onChange(boolean selfChange, Uri uri) {
             LogUtils.d(TAG, "mContentObserver - onChange - selfChange = " + selfChange + ", uri = " + uri.toString());
-            if (mApiContentProviderHelper.validateDemoModeSonySettingUri(uri)) {
+            if (mApiContentProviderHelper.validateDemoModeSettingUri(uri)) {
                 refreshData();
             }
             super.onChange(selfChange, uri);
@@ -290,13 +289,6 @@ public class DeliveryViewModel extends BaseAndroidViewModel {
 
     public void setLoaded() {
         isLoadingmore.postValue(false);
-    }
-
-    /**
-     * Update time info to AM or PM
-     */
-    public void changeTxtAMorPM() {
-        txtAMorPM.postValue(new DateTimeUtils().getAMorPMTime());
     }
 
     public DeliveryAdapter getAdapter() {

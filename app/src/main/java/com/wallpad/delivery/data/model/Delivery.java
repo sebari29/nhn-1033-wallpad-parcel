@@ -4,18 +4,10 @@ package com.wallpad.delivery.data.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import androidx.annotation.NonNull;
 import androidx.databinding.BaseObservable;
-import androidx.room.ColumnInfo;
-import androidx.room.Entity;
-import androidx.room.Ignore;
-import androidx.room.PrimaryKey;
-
-import java.util.Objects;
 
 public class Delivery extends BaseObservable implements Parcelable {
 
-    @NonNull
     private String id;
 
     private String timeSend;
@@ -25,12 +17,11 @@ public class Delivery extends BaseObservable implements Parcelable {
     private String name;
     private String status;
 
-    @NonNull
     public String getId() {
         return id;
     }
 
-    public void setId(@NonNull String id) {
+    public void setId( String id) {
         this.id = id;
     }
 

@@ -3,11 +3,12 @@ package com.wallpad.delivery.application;
 import androidx.multidex.MultiDex;
 import androidx.multidex.MultiDexApplication;
 
+import com.wallpad.basemvvm.view.BaseApplication;
 import com.wallpad.delivery.common.Constant;
 import com.wallpad.delivery.common.TypefaceUtil;
 
 
-public class AppController extends MultiDexApplication {
+public class AppController extends BaseApplication {
     private static AppController mInstance;
     public synchronized static AppController getInstance() {
         return mInstance;

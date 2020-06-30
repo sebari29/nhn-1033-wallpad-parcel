@@ -1,16 +1,16 @@
 [submodule "gsmart-module-aidl"]
 	path = gsmart-module-aidl
-	url = https://git3.fsoft.com.vn/fsoft/gsmart-module-aidl.git
+	url = http://58.230.196.56/nhn-1033/wallpad-module-aidl.git
 	branch = master
 [submodule "gsmart-module-basemvvm"]
 	path = gsmart-module-basemvvm
-	url = https://git3.fsoft.com.vn/fsoft/gsmart-module-basemvvm.git
+	url = http://58.230.196.56/nhn-1033/wallpad-module-basemvvm.git
 	branch = master
 [submodule "gsmart-module-dialog"]
 	path = gsmart-module-dialog
-	url = https://git3.fsoft.com.vn/fsoft/gsmart-module-dialog.git
+	url = http://58.230.196.56/nhn-1033/wallpad-module-dialog.git
 	branch = master
 [submodule "gsmart-module-net"]
 	path = gsmart-module-net
-	url = https://git3.fsoft.com.vn/fsoft/gsmart-module-net.git
+	url = http://58.230.196.56/nhn-1033/wallpad-module-net.git
 	branch = master

@@ -1,2 +1,2 @@
-include ':app', ':gsmart-module-basemvvm', ':gsmart-module-net', ':gsmart-module-dialog', ':gsmart-module-aidl'
+include ':app', ':wallpad-module-basemvvm', ':wallpad-module-net', ':wallpad-module-dialog', ':wallpad-module-aidl'
 rootProject.name='Delivery'

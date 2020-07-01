@@ -1,16 +1,12 @@
-[submodule "gsmart-module-aidl"]
-	path = gsmart-module-aidl
-	url = http://58.230.196.56/nhn-1033/wallpad-module-aidl.git
-	branch = master
-[submodule "gsmart-module-basemvvm"]
-	path = gsmart-module-basemvvm
-	url = http://58.230.196.56/nhn-1033/wallpad-module-basemvvm.git
-	branch = master
-[submodule "gsmart-module-dialog"]
-	path = gsmart-module-dialog
-	url = http://58.230.196.56/nhn-1033/wallpad-module-dialog.git
-	branch = master
-[submodule "gsmart-module-net"]
-	path = gsmart-module-net
-	url = http://58.230.196.56/nhn-1033/wallpad-module-net.git
-	branch = master
+[submodule "wallpad-module-aidl"]
+	path = wallpad-module-aidl
+	url = http://192.168.27.12/nhn-1033_work/wallpad-module-aidl
+[submodule "wallpad-module-basemvvm"]
+	path = wallpad-module-basemvvm
+	url = http://192.168.27.12/nhn-1033_work/wallpad-module-basemvvm
+[submodule "wallpad-module-net"]
+	path = wallpad-module-net
+	url = http://192.168.27.12/nhn-1033_work/wallpad-module-net
+[submodule "wallpad-module-dialog"]
+	path = wallpad-module-dialog
+	url = http://192.168.27.12/nhn-1033_work/wallpad-module-dialog

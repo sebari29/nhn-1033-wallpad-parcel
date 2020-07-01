@@ -63,8 +63,8 @@ dependencies {
     //gson Google
     implementation 'com.google.code.gson:gson:2.8.6'
 
-    implementation project(path: ':gsmart-module-basemvvm')
-    implementation project(path: ':gsmart-module-net')
-    implementation project(path: ':gsmart-module-dialog')
-    implementation project(path: ':gsmart-module-aidl')
+    implementation project(path: ':wallpad-module-basemvvm')
+    implementation project(path: ':wallpad-module-net')
+    implementation project(path: ':wallpad-module-dialog')
+    implementation project(path: ':wallpad-module-aidl')
 }

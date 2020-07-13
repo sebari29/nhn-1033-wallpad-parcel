@@ -35,7 +35,6 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initView() {
         dialogLoading = new ProgressDialogCustom(this);
-        showLoading();
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.setCustomAnimations(

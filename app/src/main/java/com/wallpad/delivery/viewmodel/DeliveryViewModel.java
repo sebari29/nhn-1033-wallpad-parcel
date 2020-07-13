@@ -263,7 +263,7 @@ public class DeliveryViewModel extends BaseAndroidViewModel {
 
             @Override
             public void onCallBack(List<Delivery> list) {
-
+                isLoadingmore.postValue(false);
             }
         });
         adapter.setNoticeList(list);

@@ -80,6 +80,7 @@ public class DeliveryFragment extends BaseFragment {
         binding.noticeList.setHasFixedSize(true);
         binding.noticeList.setLayoutManager(new WrapContentLinearLayoutManager(getContext()));
         binding.btnClose.setOnClickListener(mOnClickListener);
+        mDeliveryViewModel.getIsLoading().setValue(true);
     }
 
     @Override
@@ -91,25 +92,15 @@ public class DeliveryFragment extends BaseFragment {
                 if (aBoolean) {
                     ((MainActivity) getActivity()).showLoading();
                 } else {
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            ((MainActivity) getActivity()).hideLoading();
-                        }
-                    }, Constant.TIME_DELAY_LOADING);
+                    ((MainActivity) getActivity()).hideLoading();
                 }
             }
         });
         getAllNotices();
-//        getAllMockNotices();
-//        initScrollListener();
     }
 
     private void getAllNotices() {
         mDeliveryViewModel.refreshData();
-//        Message message = new Message();
-//        message.obj = new ParcelEvent(mOnDataChangedListener);
-//        mWorkerThread.sendMessage(message);
     }
 
     @Override

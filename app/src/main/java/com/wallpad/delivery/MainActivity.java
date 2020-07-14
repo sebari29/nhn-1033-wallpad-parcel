@@ -16,6 +16,8 @@ import com.wallpad.dialog.ProgressDialogCustom;
 
 import java.util.List;
 
+import static com.wallpad.delivery.common.Constant.TIME_DELAY_LOADING;
+
 public class MainActivity extends BaseActivity {
     private boolean mBounded;
     private final static String TAG = MainActivity.class.getSimpleName();
@@ -51,7 +53,7 @@ public class MainActivity extends BaseActivity {
     }
 
     public void showLoading() {
-        dialogLoading.showDialog();
+        dialogLoading.showDialog(TIME_DELAY_LOADING);
     }
 
     @Override

@@ -115,16 +115,6 @@ public class DeliveryViewModel extends BaseAndroidViewModel {
     };
 
     /**
-     * this callback for GsmartService interact to client.
-     * This is one approach , we're using broadcast to interact client instead of this.
-     */
-    private final IGSmartDataCallback.Stub mIGSmartDataCallback = new IGSmartDataCallback.Stub() {
-        @Override
-        public void onNotificationLoadCompleted(String notifications) throws RemoteException {
-
-        }
-    };
-    /**
      * call back client connection
      * When client connected to GsmartService. this Callback will be fired. We should save instance of service to use after.
      */
@@ -136,11 +126,6 @@ public class DeliveryViewModel extends BaseAndroidViewModel {
             mGSmartServiceBound = true;
             mIGSmartData = IGSmartData.Stub.asInterface(service);
             try {
-                mIGSmartData.addClientListener(mIGSmartDataCallback);
-            } catch (RemoteException e) {
-                LogUtils.e(TAG, "#onServiceConnected " + e.getMessage());
-            }
-            try {
                 LogUtils.d("call requsest to gsmart service refresh data  now");
                 mIGSmartData.refreshDeliveryInfo(indexPage);
             } catch (RemoteException e) {
@@ -151,11 +136,7 @@ public class DeliveryViewModel extends BaseAndroidViewModel {
         @Override
         public void onServiceDisconnected(ComponentName className) {
             LogUtils.d(TAG, "onServiceDisconnected method is called");
-            try {
-                mIGSmartData.removeClientListener(mIGSmartDataCallback);
-            } catch (RemoteException e) {
-                LogUtils.e(TAG, "#onServiceConnected " + e.getMessage());
-            }
+            mIGSmartData = null;
             mGSmartServiceBound = false;
         }
     };
@@ -311,13 +292,8 @@ public class DeliveryViewModel extends BaseAndroidViewModel {
 
     public void unbindGSmartService() {
         if (mIGSmartData != null) {
-            try {
-                mIGSmartData.removeClientListener(mIGSmartDataCallback);
-            } catch (RemoteException e) {
-                e.printStackTrace();
-            }
+            mIGSmartData = null;
         }
-        mIGSmartData = null;
     }
 
     public void registerObserverDBChange() {

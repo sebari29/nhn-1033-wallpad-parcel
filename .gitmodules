@@ -1,12 +1,12 @@
 [submodule "wallpad-module-aidl"]
 	path = wallpad-module-aidl
-	url = http://192.168.27.12/nhn-1033_work/wallpad-module-aidl
+	url = http://git.kdiwin.com:7990/scm/hnrndnhn1033/wallpad-module-aidl.git
 [submodule "wallpad-module-basemvvm"]
 	path = wallpad-module-basemvvm
-	url = http://192.168.27.12/nhn-1033_work/wallpad-module-basemvvm
+	url = http://git.kdiwin.com:7990/scm/hnrndnhn1033/wallpad-module-basemvvm.git
 [submodule "wallpad-module-net"]
 	path = wallpad-module-net
 	url = http://192.168.27.12/nhn-1033_work/wallpad-module-net
 [submodule "wallpad-module-dialog"]
 	path = wallpad-module-dialog
-	url = http://192.168.27.12/nhn-1033_work/wallpad-module-dialog
+	url = http://git.kdiwin.com:7990/scm/hnrndnhn1033/wallpad-module-dialog.git

@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Delivery.iml" filepath="$PROJECT_DIR$/.idea/modules/Delivery.iml" group="Delivery" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="Delivery/app" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/wallpad-module-aidl/wallpad-module-aidl.iml" filepath="$PROJECT_DIR$/.idea/modules/wallpad-module-aidl/wallpad-module-aidl.iml" group="Delivery/wallpad-module-aidl" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/wallpad-module-basemvvm/wallpad-module-basemvvm.iml" filepath="$PROJECT_DIR$/.idea/modules/wallpad-module-basemvvm/wallpad-module-basemvvm.iml" group="Delivery/wallpad-module-basemvvm" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/wallpad-module-dialog/wallpad-module-dialog.iml" filepath="$PROJECT_DIR$/.idea/modules/wallpad-module-dialog/wallpad-module-dialog.iml" group="Delivery/wallpad-module-dialog" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/wallpad-module-net/wallpad-module-net.iml" filepath="$PROJECT_DIR$/.idea/modules/wallpad-module-net/wallpad-module-net.iml" group="Delivery/wallpad-module-net" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Delivery.iml" filepath="$PROJECT_DIR$/.idea/modules/Delivery.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Delivery.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Delivery.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/wallpad-module-aidl/Delivery.wallpad-module-aidl.iml" filepath="$PROJECT_DIR$/.idea/modules/wallpad-module-aidl/Delivery.wallpad-module-aidl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/wallpad-module-basemvvm/Delivery.wallpad-module-basemvvm.iml" filepath="$PROJECT_DIR$/.idea/modules/wallpad-module-basemvvm/Delivery.wallpad-module-basemvvm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/wallpad-module-dialog/Delivery.wallpad-module-dialog.iml" filepath="$PROJECT_DIR$/.idea/modules/wallpad-module-dialog/Delivery.wallpad-module-dialog.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/wallpad-module-net/Delivery.wallpad-module-net.iml" filepath="$PROJECT_DIR$/.idea/modules/wallpad-module-net/Delivery.wallpad-module-net.iml" />
     </modules>
   </component>
 </project>

@@ -1,9 +1,10 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.lifecycle:lifecycle-service:2.0.0@aar">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/../../test/wallpad-call/caches/transforms-2/files-2.1/ff6bfa88967923b8054460be27db3cbd/lifecycle-service-2.0.0/AndroidManifest.xml" />
-      <root url="jar://$PROJECT_DIR$/../../test/wallpad-call/caches/transforms-2/files-2.1/ff6bfa88967923b8054460be27db3cbd/lifecycle-service-2.0.0/jars/classes.jar!/" />
       <root url="file://$PROJECT_DIR$/../../test/wallpad-call/caches/transforms-2/files-2.1/ff6bfa88967923b8054460be27db3cbd/lifecycle-service-2.0.0/res" />
+      <root url="file://$PROJECT_DIR$/../../test/wallpad-call/caches/transforms-2/files-2.1/ae2b499b723b5f63d9a8d6356451ac38/jetified-lifecycle-service-2.0.0/res" />
+      <root url="file://$PROJECT_DIR$/../../test/wallpad-call/caches/transforms-2/files-2.1/ae2b499b723b5f63d9a8d6356451ac38/jetified-lifecycle-service-2.0.0/AndroidManifest.xml" />
+      <root url="jar://$PROJECT_DIR$/../../test/wallpad-call/caches/transforms-2/files-2.1/ae2b499b723b5f63d9a8d6356451ac38/jetified-lifecycle-service-2.0.0/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

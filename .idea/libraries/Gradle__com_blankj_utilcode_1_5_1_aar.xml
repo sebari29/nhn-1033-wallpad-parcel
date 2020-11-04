@@ -2,11 +2,16 @@
   <library name="Gradle: com.blankj:utilcode:1.5.1@aar">
     <ANNOTATIONS>
       <root url="jar://$PROJECT_DIR$/../../test/wallpad-call/caches/transforms-2/files-2.1/98f2fe8eccc5b97a8ed8a876e450b348/jetified-utilcode-1.5.1/annotations.zip!/" />
+      <root url="jar://$PROJECT_DIR$/../../test/wallpad-call/caches/transforms-2/files-2.1/1f8054739fd5d7be77e34692794da983/jetified-utilcode-1.5.1/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
       <root url="file://$PROJECT_DIR$/../../test/wallpad-call/caches/transforms-2/files-2.1/98f2fe8eccc5b97a8ed8a876e450b348/jetified-utilcode-1.5.1/AndroidManifest.xml" />
       <root url="jar://$PROJECT_DIR$/../../test/wallpad-call/caches/transforms-2/files-2.1/98f2fe8eccc5b97a8ed8a876e450b348/jetified-utilcode-1.5.1/jars/classes.jar!/" />
       <root url="file://$PROJECT_DIR$/../../test/wallpad-call/caches/transforms-2/files-2.1/98f2fe8eccc5b97a8ed8a876e450b348/jetified-utilcode-1.5.1/res" />
+      <root url="file://$PROJECT_DIR$/../../test/wallpad-call/caches/transforms-2/files-2.1/e66209aef68ccfaa2d83c497c9f43297/jetified-utilcode-1.5.1/res" />
+      <root url="file://$PROJECT_DIR$/../../test/wallpad-call/caches/transforms-2/files-2.1/1f8054739fd5d7be77e34692794da983/jetified-utilcode-1.5.1/res" />
+      <root url="file://$PROJECT_DIR$/../../test/wallpad-call/caches/transforms-2/files-2.1/1f8054739fd5d7be77e34692794da983/jetified-utilcode-1.5.1/AndroidManifest.xml" />
+      <root url="jar://$PROJECT_DIR$/../../test/wallpad-call/caches/transforms-2/files-2.1/1f8054739fd5d7be77e34692794da983/jetified-utilcode-1.5.1/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$PROJECT_DIR$/../../test/wallpad-call/caches/modules-2/files-2.1/com.blankj/utilcode/1.5.1/2645f8ce6f1b2140f78256d59e8b864619ef4688/utilcode-1.5.1-javadoc.jar!/" />

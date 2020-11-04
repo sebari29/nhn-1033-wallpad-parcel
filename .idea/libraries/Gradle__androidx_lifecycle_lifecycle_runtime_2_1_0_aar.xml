@@ -1,9 +1,10 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.lifecycle:lifecycle-runtime:2.1.0@aar">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/../../test/wallpad-call/caches/transforms-2/files-2.1/a0c986e715398d70af8e4ea6f6543d72/lifecycle-runtime-2.1.0/AndroidManifest.xml" />
-      <root url="jar://$PROJECT_DIR$/../../test/wallpad-call/caches/transforms-2/files-2.1/a0c986e715398d70af8e4ea6f6543d72/lifecycle-runtime-2.1.0/jars/classes.jar!/" />
       <root url="file://$PROJECT_DIR$/../../test/wallpad-call/caches/transforms-2/files-2.1/a0c986e715398d70af8e4ea6f6543d72/lifecycle-runtime-2.1.0/res" />
+      <root url="file://$PROJECT_DIR$/../../test/wallpad-call/caches/transforms-2/files-2.1/eb25aa6fb92793269536cebf4ca0a993/lifecycle-runtime-2.1.0/AndroidManifest.xml" />
+      <root url="jar://$PROJECT_DIR$/../../test/wallpad-call/caches/transforms-2/files-2.1/eb25aa6fb92793269536cebf4ca0a993/lifecycle-runtime-2.1.0/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../test/wallpad-call/caches/transforms-2/files-2.1/eb25aa6fb92793269536cebf4ca0a993/lifecycle-runtime-2.1.0/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

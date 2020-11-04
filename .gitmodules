@@ -7,3 +7,6 @@
 [submodule "wallpad-module-dialog"]
 	path = wallpad-module-dialog
 	url = http://git.kdiwin.com:7990/scm/hnrndnhn1033/wallpad-module-dialog.git
+[submodule "wallpad-module-net"]
+	path = wallpad-module-net
+	url = http://git.kdiwin.com:7990/scm/hnrndnhn1033/wallpad-module-net.git

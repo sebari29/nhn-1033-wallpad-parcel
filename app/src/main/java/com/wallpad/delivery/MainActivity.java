@@ -88,6 +88,12 @@ public class MainActivity extends BaseActivity {
     }
 
     @Override
+    protected void onPause() {
+        overridePendingTransition(0,0);
+        super.onPause();
+    }
+
+    @Override
     protected void onDestroy() {
 //        mApiContentProviderHelper.unregisterContentObserver(mContentObserver);;
 //        mWorkerThread.quit();
